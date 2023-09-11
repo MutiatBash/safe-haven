@@ -20,7 +20,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 const defaultText = {
   style: [{ fontFamily: "PlayfairDisplay" }],
 };
-setDefaultProps(Text, defaultText);
 
 const Stack = createNativeStackNavigator();
 export default function App(props) {
@@ -40,7 +39,10 @@ export default function App(props) {
   React.useEffect(() => {
     Font.loadAsync({
       PlayfairDisplay: require("./assets/fonts/PlayFairDisplay/PlayfairDisplay-Regular.ttf"),
-    }).then(() => setLoaded(true));
+    }).then(() => {
+      setDefaultProps(Text, defaultText);
+      setLoaded(true);
+    });
   }, []);
 
   if (!loaded) {
