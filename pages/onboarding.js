@@ -11,15 +11,76 @@ import {
   ActivityIndicator,
   Image,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
+import creamBg from "../assets/onboarding-bg-cream.png";
+import hands from "../assets/onboarding-hands.png";
 
 export default function Onboarding({ navigation }) {
   return (
     <>
-      <SafeAreaView style={{ backgroundColor: "#fff", flex: 1 }}>
-        <View style={styles.container}>
-          <Text>We are here to help and support you</Text>
-        </View>
+      <SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
+        <ImageBackground
+          source={creamBg}
+          resizeMode="cover"
+          style={styles.backgroundImage}
+        >
+          <View style={styles.container}>
+            <Text
+              style={{
+                fontSize: 28,
+                fontWeight: "bold",
+                marginBottom: 20,
+                textAlign: "left",
+              }}
+            >
+              We are here to help and support you
+            </Text>
+            <Text>
+              Our mission is to empower survivors and raise awareness about
+              domestic violence.
+            </Text>
+            <Image
+              source={hands}
+              style={{ marginVertical: 40, width: "90%", borderRadius: 6 }}
+            />
+
+            <View style={{ width: "70%" }}>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("home");
+                }}
+                style={styles.buttonContainer}
+              >
+                <Text
+                  style={{
+                    textAlign: "center",
+                    color: "#fff",
+                  }}
+                >
+                  Continue
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("signup");
+                }}
+                style={styles.skipContainer}
+              >
+                <Text
+                  style={{
+                    textAlign: "center",
+                    color: "#B6C1C7",
+                  }}
+                >
+                  Skip
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </ImageBackground>
       </SafeAreaView>
     </>
   );
@@ -36,102 +97,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "column",
   },
-  //   safeview: {
-  //     paddingTop: 10,
-  //     backgroundColor: "#fff",
-  //     alignItems: "center",
-  //     height: "100%",
-  //   },
-  HeaderText: {
-    // fontFamily: "Inter",
-    fontSize: 20,
-    fontWeight: 600,
-  },
-  smallText: {
-    fontSize: 16,
-    paddingTop: 5,
-  },
-  buttoncontainer: {
+  buttonContainer: {
     width: "90%",
-    borderRadius: 8,
-    marginTop: 45,
-    fontSize: 6,
-  },
-  button: {
-    display: "flex",
-    textAlign: "center",
-    borderRadius: 8,
-    paddingVertical: 6,
-    fontSize: 6,
-    paddingHorizontal: 6,
-  },
-  price: {
-    fontSize: 18,
-    fontWeight: 700,
-  },
-  booksContainer: {
-    flexDirection: "row",
-    // alignItems: "center",
+    backgroundColor: "rgba(0, 128,128,255)",
+    borderRadius: 2,
+    marginTop: 30,
     paddingVertical: 15,
-    flexWrap: "wrap",
-    columnGap: 6,
-    rowGap: 16,
-    justifyContent: "center",
-  },
-  book: {
-    flexDirection: "column",
-    // alignItems: "center",
-    gap: 5,
-    justifyContent: "center",
-    padding: 10,
-    border: "none",
-    backgroundColor: "#fff",
-    borderRadius: 8,
-  },
-  shadowProp: {
-    shadowColor: "#696969",
-    shadowOffset: { width: 0.5, height: 3 },
-    shadowOpacity: 0.14,
-    shadowRadius: 6,
-    elevation: 6,
-  },
-  article: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 18,
-    paddingHorizontal: 25,
-    gap: 20,
     width: "100%",
-    justifyContent: "space-between",
   },
-  tab: {
-    // position: "absolute",
-    // zIndex: 1,
-    // bottom: 0,
-    // left: 0,
-    // right: 0,
-    alignItems: "center",
-    backgroundColor: "#fff",
-    flexDirection: "row",
-    alignItems: "center",
-    paddingHorizontal: 15,
-    paddingTop: 12,
-    borderRadiusTopRight: 10,
-    gap: 10,
-    width: "100%",
-    justifyContent: "space-between",
+  skipContainer: {
+    paddingVertical: 15,
+    marginTop: 10,
   },
-  HomeText: {
-    color: "#411465",
-    fontWeight: 600,
-  },
-  genre: {
-    flexDirection: "row",
-    alignItems: "center",
-    color: "#411465",
-    backgroundColor: "#D9D0E0",
-    paddingVertical: 6,
-    paddingHorizontal: 10,
-    borderRadius: 6,
+  backgroundImage: {
+    paddingTop: 60,
   },
 });
