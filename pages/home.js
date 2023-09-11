@@ -27,7 +27,7 @@ export default function Home({ navigation }) {
           <View style={styles.welcome}>
             <View>
               <Text style={styles.smallText}>Welcome back</Text>
-              <Text style={styles.HeaderText}>{username}</Text>
+              <Text style={styles.headerText}>{username}</Text>
             </View>
             <Image />
           </View>
@@ -139,19 +139,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "column",
   },
-  //   safeview: {
-  //     paddingTop: 10,
-  //     backgroundColor: "#fff",
-  //     alignItems: "center",
-  //     height: "100%",
-  //   },
-  HeaderText: {
+  
+  headerText: {
     // fontFamily: "Inter",
-    fontSize: 20,
-    fontWeight: 600,
+    fontSize: 16,
+    fontWeight: 700,
   },
   smallText: {
-    fontSize: 16,
+    fontSize: 12,
     paddingTop: 5,
   },
   buttoncontainer: {
@@ -217,18 +212,11 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
   },
   tab: {
-    // position: "absolute",
-    // zIndex: 1,
-    // bottom: 0,
-    // left: 0,
-    // right: 0,
-    // flex: 1,
-    // height: "20%",
     alignItems: "center",
     backgroundColor: "#fff",
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 15,
+    paddingHorizontal: 5,
     paddingTop: 12,
     borderRadiusTopRight: 10,
     gap: 10,
