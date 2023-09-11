@@ -36,13 +36,14 @@ export default function Help({ navigation }) {
           {/* HELP SECTION */}
           <View>
             <View style={styles.article}>
-              
-              
               <View>
                 <Text style={styles.headerText}>Chat with a professional</Text>
                 <Text style={styles.smallText}>10K Members</Text>
                 <View>
-                  <Text> Adeola Greg</Text> <Text>5 mins read</Text>
+                  <Text> Adeola Greg</Text>
+                  <View>
+                    <Text>5 mins read</Text>
+                  </View>
                 </View>
               </View>
             </View>
@@ -50,7 +51,7 @@ export default function Help({ navigation }) {
 
           <View style={styles.tab}>
             <TouchableOpacity
-              onPress={() => navigation.navigate("Home")}
+              onPress={() => navigation.navigate("home")}
               style={{ padding: 6, gap: 3, alignItems: "center" }}
             >
               <Text style={styles.HomeText}>Home</Text>
@@ -63,11 +64,13 @@ export default function Help({ navigation }) {
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3, alignItems: "center" }}
+              onPress={() => navigation.navigate("explore")}
             >
               <Text>Explore</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3, alignItems: "center" }}
+              onPress={() => navigation.navigate("community")}
             >
               <Text>Community</Text>
             </TouchableOpacity>

@@ -83,23 +83,26 @@ export default function Community({ navigation }) {
 
           <View style={styles.tab}>
             <TouchableOpacity
-              onPress={() => navigation.navigate("Home")}
+              onPress={() => navigation.navigate("home")}
               style={{ padding: 6, gap: 3, alignItems: "center" }}
             >
               <Text style={styles.HomeText}>Home</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{ padding: 6, gap: 3 }}>
-              <View></View>
-
+            <TouchableOpacity
+              style={{ padding: 6, gap: 3 }}
+              onPress={() => navigation.navigate("help")}
+            >
               <Text>Help</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3, alignItems: "center" }}
+              onPress={() => navigation.navigate("explore")}
             >
               <Text>Explore</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3, alignItems: "center" }}
+              onPress={() => navigation.navigate("community")}
             >
               <Text>Community</Text>
             </TouchableOpacity>
