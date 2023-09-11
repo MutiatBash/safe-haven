@@ -26,7 +26,7 @@ export default function Help({ navigation }) {
         <View style={styles.container}>
           <View>
             <Text style={styles.headerText}> Get Help</Text>
-            <Text>
+            <Text style={{ paddingVertical: 10 }}>
               You can chat with a professional and your sessions are completely
               safe with us, you can also report an incident or document your
               incidents for safe keeping
@@ -34,20 +34,66 @@ export default function Help({ navigation }) {
           </View>
 
           {/* HELP SECTION */}
-          <View>
+          {/* <SafeAreaView> */}
+          <View style={{ backgroundColor: "#fff", flex: 1 }}>
             <View style={styles.article}>
               <View>
-                <Text style={styles.headerText}>Chat with a professional</Text>
-                <Text style={styles.smallText}>10K Members</Text>
-                <View>
-                  <Text> Adeola Greg</Text>
-                  <View>
-                    <Text>5 mins read</Text>
-                  </View>
-                </View>
+                <Image />
               </View>
+              <View>
+                <Text style={styles.helpText}>Chat with a professional</Text>
+                <Text style={styles.smallerText}>
+                  If you are feeling overwhelmed you can chat with us, you are
+                  in a safe space
+                </Text>
+              </View>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("ongoingChat");
+                }}
+              >
+                <Text style={{ fontSize: 18 }}> {">"}</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.article}>
+              <View>
+                <Image />
+              </View>
+              <View>
+                <Text style={styles.helpText}>Report an incident</Text>
+                <Text style={styles.smallerText}>
+                  We're here to help and support you, Your safety is our top
+                  priority
+                </Text>
+              </View>
+              <View></View>
+            </View>
+            <View style={styles.article}>
+              <View>
+                <Image />
+              </View>
+              <View>
+                <Text style={styles.helpText}>Document an incident</Text>
+                <Text style={styles.smallerText}>
+                  You can document an incident and it is safe on our platform
+                </Text>
+              </View>
+              <View></View>
+            </View>
+            <View style={styles.article}>
+              <View>
+                <Image />
+              </View>
+              <View>
+                <Text style={styles.helpText}>Get help near you</Text>
+                <Text style={styles.smallerText}>
+                  Get to a domestic emergency unit near you
+                </Text>
+              </View>
+              <View></View>
             </View>
           </View>
+          {/* </SafeAreaView> */}
 
           <View style={styles.tab}>
             <TouchableOpacity
@@ -85,7 +131,10 @@ export default function Help({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
+    // alignItems: "center",
+    flexDirection: "column",
+    // justifyContent: "space-between",
+    paddingHorizontal: 15,
     height: "100%",
   },
   loader: {
@@ -94,13 +143,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "column",
   },
-  HeaderText: {
+  headerText: {
     // fontFamily: "Inter",
     fontSize: 20,
     fontWeight: 600,
   },
-  smallText: {
+  helpText: {
+    // fontFamily: "Inter",
     fontSize: 16,
+    // fontWeight: 600,
+  },
+  smallerText: {
+    fontSize: 11,
     paddingTop: 5,
   },
   buttoncontainer: {
@@ -152,9 +206,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 18,
     paddingHorizontal: 25,
-    gap: 20,
+    // gap: 20,
     width: "100%",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
   },
   tab: {
     alignItems: "center",
