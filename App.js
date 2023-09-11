@@ -9,7 +9,8 @@ import Onboarding from "./pages/onboarding";
 import setDefaultProps from "react-native-simple-default-props";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
-
+import OngoingChat from "./pages/ongoingChat";
+import ClosedChat from "./pages/closedChat";
 import { View, Text, Button } from "react-native";
 import { AuthProvider } from "./authContext";
 import { NavigationContainer } from "@react-navigation/native";
@@ -60,6 +61,8 @@ export default function App(props) {
           <Stack.Screen name="help" component={Help} />
           <Stack.Screen name="explore" component={Explore} />
           <Stack.Screen name="community" component={Community} />
+          <Stack.Screen name="ongoingChat" component={OngoingChat} />
+          <Stack.Screen name="closedChat" component={ClosedChat} />
         </Stack.Navigator>
         {/* <Toast config={toastConfig} /> */}
       </NavigationContainer>
