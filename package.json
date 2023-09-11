@@ -9,7 +9,6 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "1.18.2",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
     "expo": "~49.0.8",
@@ -20,6 +19,8 @@
     "react-native-safe-area-context": "4.6.3",
     "react-native-screens": "~3.22.0",
     "react-native-simple-default-props": "^1.0.0",
+    "react-native-svg": "13.9.0",
+    "react-native-svg-transformer": "^1.1.0",
     "react-native-toast-message": "^2.1.6"
   },
   "devDependencies": {
