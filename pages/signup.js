@@ -114,20 +114,21 @@ export default function Signup({ navigation }) {
               <TextInput
                 style={styles.input}
                 secureTextEntry={true}
-                value={password}
-                onChangeText={(text) => setPassword(text)}
+                // value={password}
+                // onChangeText={(text) => setPassword(text)}
               />
             </View>
             {/* <Text style={{ color: "#dc143c", fontSize: 13 }}>{error}</Text> */}
           </View>
-          <View style={styles.buttonContainer}>
+          <View>
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate("home");
                 console.log("pressed");
               }}
+              style={styles.buttonContainer}
             >
-              <Text>Create account</Text>
+              <Text style={{textAlign:"center",color:"#fff",fontSize:18, fontWeight:500,}}>Create account</Text>
             </TouchableOpacity>
           </View>
 
@@ -218,9 +219,9 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 128,128,255)",
     borderRadius: 8,
     marginTop: 10,
-    paddingVertical: 8,
+    paddingVertical: 18,
     width: "100%",
-    fontSize: 6,
+    // fontSize: 6,
   },
   form: {
     flexDirection: "column",

@@ -23,6 +23,7 @@ export default function Explore({ navigation }) {
     <>
       <SafeAreaView style={{ backgroundColor: "#fff", flex: 1 }}>
         <View style={styles.container}>
+
           {/* RESOURCES SECTION */}
 
           <View style={[styles.welcome]}>
@@ -47,7 +48,7 @@ export default function Explore({ navigation }) {
                 <Text> Adeola Greg</Text> <Text>5 mins read</Text>
               </View>
             </View>
-            <ScrollView>
+            {/* <ScrollView>
               <View style={styles.article}>
                 <View>
                   <Image />
@@ -90,7 +91,7 @@ export default function Explore({ navigation }) {
                   </View>
                 </View>
               </View>
-            </ScrollView>
+            </ScrollView> */}
           </View>
 
           <View style={styles.tab}>
@@ -101,7 +102,6 @@ export default function Explore({ navigation }) {
               <Text style={styles.HomeText}>Home</Text>
             </TouchableOpacity>
             <TouchableOpacity style={{ padding: 6, gap: 3 }}>
-              <View></View>
 
               <Text>Help</Text>
             </TouchableOpacity>

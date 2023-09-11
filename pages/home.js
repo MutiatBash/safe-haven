@@ -25,7 +25,6 @@ export default function Home({ navigation }) {
       <SafeAreaView style={{ backgroundColor: "#fff", flex: 1 }}>
         <View style={styles.container}>
           <View style={styles.welcome}>
-            <View></View>
             <View>
               <Text style={styles.smallText}>Welcome back</Text>
               <Text style={styles.HeaderText}>{username}</Text>
@@ -71,9 +70,7 @@ export default function Home({ navigation }) {
             </View>
             <ScrollView>
               <View style={styles.community}>
-                <View>
-                  <Image />
-                </View>
+
                 <View>
                   <Text style={styles.headerText}>
                     End Abuse and domestic violence
@@ -82,18 +79,14 @@ export default function Home({ navigation }) {
                 </View>
               </View>
               <View style={styles.community}>
-                <View>
-                  <Image />
-                </View>
+
                 <View>
                   <Text style={styles.headerText}>Safehaven action fight</Text>
                   <Text style={styles.smallText}>30M Members</Text>
                 </View>
               </View>
               <View style={styles.community}>
-                <View>
-                  <Image />
-                </View>
+                
                 <View>
                   <Text style={styles.headerText}>Support You</Text>
                   <Text style={styles.smallText}>10K Members</Text>
@@ -104,23 +97,26 @@ export default function Home({ navigation }) {
 
           <View style={styles.tab}>
             <TouchableOpacity
-              onPress={() => navigation.navigate("Home")}
+              onPress={() => navigation.navigate("home")}
               style={{ padding: 6, gap: 3, alignItems: "center" }}
             >
               <Text style={styles.HomeText}>Home</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{ padding: 6, gap: 3 }}>
-              <View></View>
-
+            <TouchableOpacity
+              style={{ padding: 6, gap: 3 }}
+              onPress={() => navigation.navigate("help")}
+            >
               <Text>Help</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3, alignItems: "center" }}
+              onPress={() => navigation.navigate("explore")}
             >
               <Text>Explore</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3, alignItems: "center" }}
+              onPress={() => navigation.navigate("community")}
             >
               <Text>Community</Text>
             </TouchableOpacity>

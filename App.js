@@ -3,6 +3,8 @@ import * as React from "react";
 import Signup from "./pages/signup";
 import Home from "./pages/home";
 import Help from "./pages/help";
+import Community from "./pages/community";
+import Explore from "./pages/explore";
 import { View, Text, Button } from "react-native";
 import { AuthProvider } from "./authContext";
 import { NavigationContainer } from "@react-navigation/native";
@@ -30,17 +32,11 @@ export default function App(props) {
           <Stack.Screen name="signup" component={Signup} />
           <Stack.Screen name="home" component={Home} />
           <Stack.Screen name="help" component={Help} />
+          <Stack.Screen name="explore" component={Explore} />
+          <Stack.Screen name="community" component={Community} />
         </Stack.Navigator>
         {/* <Toast config={toastConfig} /> */}
       </NavigationContainer>
     </AuthProvider>
   );
-}
-
-{
-  /* <Stack.Screen name="Cart" component={Cart} />
-            <Stack.Screen name="Checkout" component={Checkout} />
-            <Stack.Screen name="Favourites" component={Favourites} />
-            <Stack.Screen name="Description" component={Description} />
-            <Stack.Screen name="Review" component={Review} /> */
 }

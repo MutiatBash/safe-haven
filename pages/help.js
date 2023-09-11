@@ -36,9 +36,8 @@ export default function Help({ navigation }) {
           {/* HELP SECTION */}
           <View>
             <View style={styles.article}>
-              <View>
-                <Image />
-              </View>
+              
+              
               <View>
                 <Text style={styles.headerText}>Chat with a professional</Text>
                 <Text style={styles.smallText}>10K Members</Text>
@@ -56,9 +55,10 @@ export default function Help({ navigation }) {
             >
               <Text style={styles.HomeText}>Home</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{ padding: 6, gap: 3 }}>
-              <View></View>
-
+            <TouchableOpacity
+              style={{ padding: 6, gap: 3 }}
+              onPress={() => navigation.navigate("help")}
+            >
               <Text>Help</Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -91,12 +91,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "column",
   },
-  //   safeview: {
-  //     paddingTop: 10,
-  //     backgroundColor: "#fff",
-  //     alignItems: "center",
-  //     height: "100%",
-  //   },
   HeaderText: {
     // fontFamily: "Inter",
     fontSize: 20,
@@ -160,11 +154,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   tab: {
-    // position: "absolute",
-    // zIndex: 1,
-    // bottom: 0,
-    // left: 0,
-    // right: 0,
     alignItems: "center",
     backgroundColor: "#fff",
     flexDirection: "row",
