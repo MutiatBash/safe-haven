@@ -23,7 +23,6 @@ export default function Explore({ navigation }) {
     <>
       <SafeAreaView style={{ backgroundColor: "#fff", flex: 1 }}>
         <View style={styles.container}>
-
           {/* RESOURCES SECTION */}
 
           <View style={[styles.welcome]}>
@@ -45,7 +44,10 @@ export default function Explore({ navigation }) {
               <Image />
               <Text>How I Escaped My Abuser</Text>
               <View>
-                <Text> Adeola Greg</Text> <Text>5 mins read</Text>
+                <Text> Adeola Greg</Text>
+                <View>
+                  <Text>5 mins read</Text>
+                </View>
               </View>
             </View>
             {/* <ScrollView>
@@ -96,22 +98,26 @@ export default function Explore({ navigation }) {
 
           <View style={styles.tab}>
             <TouchableOpacity
-              onPress={() => navigation.navigate("Home")}
+              onPress={() => navigation.navigate("home")}
               style={{ padding: 6, gap: 3, alignItems: "center" }}
             >
               <Text style={styles.HomeText}>Home</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{ padding: 6, gap: 3 }}>
-
+            <TouchableOpacity
+              style={{ padding: 6, gap: 3 }}
+              onPress={() => navigation.navigate("help")}
+            >
               <Text>Help</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3, alignItems: "center" }}
+              onPress={() => navigation.navigate("explore")}
             >
               <Text>Explore</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3, alignItems: "center" }}
+              onPress={() => navigation.navigate("community")}
             >
               <Text>Community</Text>
             </TouchableOpacity>

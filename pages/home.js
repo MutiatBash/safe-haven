@@ -70,7 +70,6 @@ export default function Home({ navigation }) {
             </View>
             <ScrollView>
               <View style={styles.community}>
-
                 <View>
                   <Text style={styles.headerText}>
                     End Abuse and domestic violence
@@ -79,14 +78,12 @@ export default function Home({ navigation }) {
                 </View>
               </View>
               <View style={styles.community}>
-
                 <View>
                   <Text style={styles.headerText}>Safehaven action fight</Text>
                   <Text style={styles.smallText}>30M Members</Text>
                 </View>
               </View>
               <View style={styles.community}>
-                
                 <View>
                   <Text style={styles.headerText}>Support You</Text>
                   <Text style={styles.smallText}>10K Members</Text>
@@ -132,6 +129,8 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 15,
+    flexDirection: "column",
+    justifyContent:"space-between",
     height: "100%",
   },
   loader: {
@@ -223,6 +222,8 @@ const styles = StyleSheet.create({
     // bottom: 0,
     // left: 0,
     // right: 0,
+    // flex: 1,
+    // height: "20%",
     alignItems: "center",
     backgroundColor: "#fff",
     flexDirection: "row",
