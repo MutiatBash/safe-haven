@@ -17,120 +17,267 @@ import {
 // import { ToastContainer } from "react-native-toast-message";
 import { useState, useContext, useCallback, useEffect } from "react";
 // import { auth } from "../firebase";
+import abuser from "../assets/explore-abuser.png";
+import domesticViolence from "../assets/explore-domestic-violence.png";
+import help from "../assets/explore-help.png";
+import victim from "../assets/explore-victim.png";
+import scared from "../assets/explore-scared.png";
+
+function ArticleAuthor() {
+  return (
+    <View style={styles.articleAuthor}>
+      <Text> Adeola Greg</Text>
+      <View>
+        <Text>5 mins read</Text>
+      </View>
+    </View>
+  );
+}
 
 export default function Explore({ navigation }) {
+  const [activeTab, setActiveTab] = useState("resources");
+  const articles = [
+    {
+      image: domesticViolence,
+      title: "What is Domestic Violence",
+      description:
+        "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born...",
+    },
+    {
+      image: help,
+      title: "Getting help",
+      description:
+        "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born...",
+    },
+    {
+      image: victim,
+      title: "Are you a victim?",
+      description:
+        "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born...",
+    },
+    {
+      image: scared,
+      title: "Are you scared?",
+      description:
+        "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born...",
+    },
+  ];
+
+  const hotlines = [
+    {
+      title: "Brave heart Initiative",
+      code: "0807-398-9838, 0706-191-0869",
+    },
+    {
+      title: "Cece Yara Foundation",
+      code: "0807-398-9838, 0706-191-0869",
+    },
+    {
+      title: "Dorathy Njemanze foundation",
+      code: "0807-398-9838, 0706-191-0869",
+    },
+    {
+      title: "Lagos state domestic sexual and violence response team",
+      code: "0807-398-9838, 0706-191-0869",
+    },
+    {
+      title: "Internation fedaeration of women lawyers ( FIDA )",
+      code: "0807-398-9838, 0706-191-0869",
+    },
+    {
+      title: "Isa wali empowerment initiative ( IWEI )",
+      code: "0807-398-9838, 0706-191-0869",
+    },
+    {
+      title: "Mirabel Center",
+      code: "0807-398-9838, 0706-191-0869",
+    },
+  ];
+
   return (
-    <>
-      <SafeAreaView style={{ backgroundColor: "#fff", flex: 1 }}>
-        <View style={styles.container}>
-          {/* RESOURCES SECTION */}
-
-          <View style={[styles.welcome]}>
-            <Text style={{ fontWeight: 600 }}> Resources</Text>
-            <Text style={{ fontWeight: 600 }}> Hotlines</Text>
+    <SafeAreaView
+      style={{ backgroundColor: "#F5F5F5", flex: 1, height: "100%" }}
+    >
+      <View style={styles.container}>
+        <View style={styles.welcome}>
+          <View
+            style={[
+              activeTab == "resources" && styles.activeTabHeader,
+              styles.headerContainer,
+            ]}
+          >
+            <Text
+              style={styles.tabHeader}
+              onPress={() => {
+                setActiveTab("resources");
+              }}
+            >
+              Resources
+            </Text>
           </View>
-
-          <View>
-            <TextInput
-              inputMode="text"
-              style={styles.input}
-              placeholder="Search for articles, educational content etc"
-            />
-          </View>
-
-          {/* ARTICLES SECTION */}
-          <View>
-            <View style={[styles.welcome]}>
-              <Image />
-              <Text>How I Escaped My Abuser</Text>
-              <View>
-                <Text> Adeola Greg</Text>
-                <View>
-                  <Text>5 mins read</Text>
-                </View>
-              </View>
-            </View>
-            {/* <ScrollView>
-              <View style={styles.article}>
-                <View>
-                  <Image />
-                </View>
-                <View>
-                  <Text style={styles.headerText}>
-                    What is Domestic Violence
-                  </Text>
-                  <Text style={styles.smallText}>10K Members</Text>
-                  <View>
-                    <Text> Adeola Greg</Text> <Text>5 mins read</Text>
-                  </View>
-                </View>
-              </View>
-              <View style={styles.article}>
-                <View>
-                  <Image />
-                </View>
-                <View>
-                  <Text style={styles.headerText}>
-                    What is Domestic Violence
-                  </Text>
-                  <Text style={styles.smallText}>10K Members</Text>
-                  <View>
-                    <Text> Adeola Greg</Text> <Text>5 mins read</Text>
-                  </View>
-                </View>
-              </View>
-              <View style={styles.article}>
-                <View>
-                  <Image />
-                </View>
-                <View>
-                  <Text style={styles.headerText}>
-                    What is Domestic Violence
-                  </Text>
-                  <Text style={styles.smallText}>10K Members</Text>
-                  <View>
-                    <Text> Adeola Greg</Text> <Text>5 mins read</Text>
-                  </View>
-                </View>
-              </View>
-            </ScrollView> */}
-          </View>
-
-          <View style={styles.tab}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("home")}
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
+          <View
+            style={[
+              activeTab == "hotlines" && styles.activeTabHeader,
+              styles.headerContainer,
+            ]}
+          >
+            <Text
+              style={styles.tabHeader}
+              onPress={() => {
+                setActiveTab("hotlines");
+              }}
             >
-              <Text style={styles.HomeText}>Home</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ padding: 6, gap: 3 }}
-              onPress={() => navigation.navigate("help")}
-            >
-              <Text>Help</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
-              onPress={() => navigation.navigate("explore")}
-            >
-              <Text>Explore</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
-              onPress={() => navigation.navigate("community")}
-            >
-              <Text>Community</Text>
-            </TouchableOpacity>
+              Hotlines
+            </Text>
           </View>
         </View>
 
-        <StatusBar style="auto" />
-      </SafeAreaView>
-    </>
+        {activeTab == "resources" && (
+          <View style={{ width: "100%", alignItems: "center" }}>
+            <View style={{ width: "90%" }}>
+              <TextInput
+                inputMode="text"
+                style={styles.input}
+                placeholder="Search for articles, educational content etc"
+              />
+            </View>
+            {/* ARTICLES SECTION */}
+            <View style={{ width: "90%", marginVertical: 20 }}>
+              <View style={{ backgroundColor: "#fff", borderRadius: 6 }}>
+                <Image
+                  source={abuser}
+                  style={{ width: "100%", borderRadius: 6 }}
+                />
+                <View style={{ padding: 15 }}>
+                  <Text style={{ fontSize: 18 }}>How I Escaped My Abuser</Text>
+                  <ArticleAuthor />
+                </View>
+              </View>
+
+              <ScrollView>
+                {articles.map((article) => (
+                  <View style={styles.article} key={article.image}>
+                    <View>
+                      <Image source={article.image} />
+                    </View>
+                    <View style={{ width: "70%" }}>
+                      <Text style={styles.headerText}>{article.title}</Text>
+                      <Text style={styles.smallText}>
+                        {article.description}
+                      </Text>
+                      <ArticleAuthor />
+                    </View>
+                  </View>
+                ))}
+              </ScrollView>
+            </View>
+          </View>
+        )}
+
+        {activeTab == "hotlines" && (
+          <View style={{ width: "100%", alignItems: "center" }}>
+            {/* HOTLINES SECTION */}
+            <View style={{ width: "90%" }}>
+              <ScrollView>
+                {hotlines.map((hotline) => (
+                  <View style={styles.article} key={hotline.title}>
+                    <View style={{ width: "100%" }}>
+                      <Text style={styles.headerText}>{hotline.title}</Text>
+                      <Text style={styles.smallText}>
+                        But I must explain to you how all this mistaken idea of
+                        denouncing pleasure and praising pain was born...
+                      </Text>
+                      <Text style={styles.smallText}>{hotline.code}</Text>
+                    </View>
+                  </View>
+                ))}
+              </ScrollView>
+            </View>
+          </View>
+        )}
+
+        <View style={styles.tab}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("home")}
+            style={{ padding: 6, gap: 3, alignItems: "center" }}
+          >
+            <Text style={styles.HomeText}>Home</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ padding: 6, gap: 3 }}
+            onPress={() => navigation.navigate("help")}
+          >
+            <Text>Help</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ padding: 6, gap: 3, alignItems: "center" }}
+            onPress={() => navigation.navigate("explore")}
+          >
+            <Text>Explore</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ padding: 6, gap: 3, alignItems: "center" }}
+            onPress={() => navigation.navigate("community")}
+          >
+            <Text>Community</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <StatusBar style="auto" />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  welcome: {
+    display: "flex",
+    flexDirection: "row",
+    textAlign: "left",
+    alignItems: "left",
+    justifyContent: "left",
+    width: "90%",
+    paddingTop: 20,
+  },
+  tabHeader: {
+    fontSize: 18,
+  },
+  activeTabHeader: {
+    borderBottomColor: "rgba(0, 128,128,255)",
+    borderBottomWidth: 3,
+  },
+  headerContainer: {
+    marginRight: 10,
+    marginBottom: 20,
+  },
+  input: {
+    backgroundColor: "#fff",
+    borderWidth: 0.5,
+    borderColor: "#c5c5c5",
+    borderRadius: 6,
+    padding: 12,
+    width: "100%",
+    marginBottom: 6,
+  },
+  articleAuthor: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 15,
+  },
+  smallText: {
+    fontSize: 10,
+    paddingTop: 5,
+  },
+  article: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 18,
+    gap: 15,
+    borderBottomColor: "#E8E8E8",
+    borderBottomWidth: 1,
+  },
+
   container: {
     alignItems: "center",
     height: "100%",
@@ -141,21 +288,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "column",
   },
-  //   safeview: {
-  //     paddingTop: 10,
-  //     backgroundColor: "#fff",
-  //     alignItems: "center",
-  //     height: "100%",
-  //   },
-  HeaderText: {
-    // fontFamily: "Inter",
-    fontSize: 20,
-    fontWeight: 600,
-  },
-  smallText: {
-    fontSize: 16,
-    paddingTop: 5,
-  },
+
   buttoncontainer: {
     width: "90%",
     borderRadius: 8,
@@ -199,15 +332,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.14,
     shadowRadius: 6,
     elevation: 6,
-  },
-  article: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 18,
-    paddingHorizontal: 25,
-    gap: 20,
-    width: "100%",
-    justifyContent: "space-between",
   },
   tab: {
     // position: "absolute",
