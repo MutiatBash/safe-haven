@@ -43,7 +43,17 @@ export default function Home({ navigation }) {
 
             <Image />
           </View>
-          <View style={{ flex: 1, paddingHorizontal: 15, position:"relative" }}>
+          {/*  SEARCH INPUT */}
+          <View style={{ paddingHorizontal: 15 }}>
+            <TextInput
+              inputMode="text"
+              style={styles.input}
+              placeholder="Search for resources, communities etc"
+            />
+          </View>
+          <View
+            style={{ flex: 1, paddingHorizontal: 15, position: "relative" }}
+          >
             {/* RESOURCES SECTION */}
             <View>
               <View style={[styles.welcome]}>
@@ -66,15 +76,21 @@ export default function Home({ navigation }) {
                 >
                   <View style={styles.resource}>
                     <View>
-                      <Text>Are you a victim?</Text>
-                      <Text> Read to learn</Text>
+                      <Text style={{ fontWeight: 600, fontSize: 18 }}>
+                        Are you a victim?
+                      </Text>
+                      <Text style={{ fontSize: 12, paddingTop: 5 }}>
+                        Read to learn more about domestic violence and how to
+                        get out.
+                      </Text>
+                      <Text style={styles.smallText}>10 mins read</Text>
                     </View>
-                    <View style={{ paddingLeft: 30 }}>
+                    <View style={{ paddingLeft: 8 }}>
                       <Image
                         source={require("../assets/home-victim.png")}
                         style={{
-                          width: 180,
-                          height: 170,
+                          width: 150,
+                          height: 150,
                           resizeMode: "contain",
                           alignSelf: "flex-end",
                         }}
@@ -83,15 +99,21 @@ export default function Home({ navigation }) {
                   </View>
                   <View style={styles.resource}>
                     <View>
-                      <Text>What is domestic violence?</Text>
-                      <Text> Read to learn</Text>
+                      <Text style={{ fontWeight: 600, fontSize: 18 }}>
+                        What is domestic violence?
+                      </Text>
+                      <Text style={{ fontSize: 12, paddingTop: 5 }}>
+                        Read to learn more about domestic violence and how to
+                        get out.
+                      </Text>
+                      <Text style={styles.smallText}>10 mins read</Text>
                     </View>
                     <View style={{ paddingLeft: 15 }}>
                       <Image
                         source={require("../assets/home-violence.png")}
                         style={{
                           width: 180,
-                          height: 170,
+                          height: 150,
                           resizeMode: "contain",
                           // alignSelf: "flex-end",
                         }}
@@ -117,7 +139,7 @@ export default function Home({ navigation }) {
                 </Text>
               </View>
 
-              <ScrollView contentContainerStyle={styles.communities}>
+              <ScrollView contentContainerStyle={styles.communities} >
                 <View style={styles.community}>
                   <Image
                     source={require("../assets/home-end-abuse.png")}
@@ -165,9 +187,7 @@ export default function Home({ navigation }) {
           {/* ADD ICON */}
           <View style={styles.add}>
             <TouchableOpacity>
-            <Text style={{ color: "#fff", fontSize: 20, fontWeight: "bold" }}>
-              +
-            </Text>
+              <Image source={require("../assets/png-icons/plus.png")} />
             </TouchableOpacity>
           </View>
 
@@ -178,25 +198,28 @@ export default function Home({ navigation }) {
               onPress={() => navigation.navigate("home")}
               style={{ padding: 6, gap: 3, alignItems: "center" }}
             >
-              {/* <HomeIcon /> */}
+              <Image source={require("../assets/png-icons/home-filled.png")} />
               <Text style={styles.HomeText}>Home</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3 }}
               onPress={() => navigation.navigate("help")}
             >
+              <Image source={require("../assets/png-icons/help.png")} />
               <Text>Help</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3, alignItems: "center" }}
               onPress={() => navigation.navigate("explore")}
             >
+              <Image source={require("../assets/png-icons/explore.png")} />
               <Text>Explore</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3, alignItems: "center" }}
               onPress={() => navigation.navigate("community")}
             >
+              <Image source={require("../assets/png-icons/community.png")} />
               <Text>Community</Text>
             </TouchableOpacity>
           </View>
@@ -211,10 +234,9 @@ export default function Home({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-   
     flexDirection: "column",
     backgroundColor: "#fafafa",
-   
+
     height: "100%",
   },
   loader: {
@@ -238,19 +260,24 @@ const styles = StyleSheet.create({
     paddingTop: 5,
   },
   add: {
-    borderRadius: 100,
-    width: 50,
-    height: 50,
     position: "fixed",
     bottom: 10,
     left: "80%",
-    alignItems: "center",
-    backgroundColor: "rgba(0, 128,128,255)",
   },
-
+  input: {
+    backgroundColor: "#fff",
+    borderWidth: 0.5,
+    borderColor: "#c5c5c5",
+    borderRadius: 6,
+    padding: 10,
+    width: "100%",
+    marginVertical: 6,
+  },
   resource: {
     flexDirection: "column",
-    paddingHorizontal: 10,
+    // flexShrink: 1,
+    width: "70%",
+    paddingHorizontal: 12,
     paddingVertical: 12,
     borderWidth: 0.3,
     borderColor: "#e5e8e8",
@@ -306,8 +333,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 10,
-    paddingVertical: 15,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
     gap: 10,
     width: "100%",
     justifyContent: "space-between",
