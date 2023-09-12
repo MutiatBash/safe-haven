@@ -144,6 +144,14 @@ export default function ClosedChat({ navigation }) {
             </ScrollView>
           </View>
 
+          {/* ADD ICON */}
+          <View style={styles.add}>
+            <TouchableOpacity>
+              <Image source={require("../assets/png-icons/plus.png")} />
+            </TouchableOpacity>
+          </View>
+
+          {/* BOTTOM TAB */}
           <View style={styles.tab}>
             <TouchableOpacity
               onPress={() => navigation.navigate("home")}
@@ -214,6 +222,11 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     // paddingHorizontal: 1
     gap: 10,
+  },
+  add: {
+    position: "fixed",
+    bottom: 10,
+    left: "80%",
   },
   session: {
     flexDirection: "row",

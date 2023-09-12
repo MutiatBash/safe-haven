@@ -22,133 +22,103 @@ import { useState, useContext, useCallback, useEffect } from "react";
 export default function Help({ navigation }) {
   return (
     <>
-      <SafeAreaView style={{ backgroundColor: "#fff", flex: 1 }}>
+      <SafeAreaView style={{ backgroundColor: "#fafafa", flex: 1 }}>
         <View style={styles.container}>
-          <View>
-            <Text style={styles.headerText}>Get Help</Text>
-            <Text style={{ paddingVertical: 10, lineHeight: 20 }}>
-              You can chat with a professional and your sessions are completely
-              safe with us, you can also report an incident or document your
-              incidents for safe keeping
-            </Text>
-          </View>
+          <View style={{ paddingHorizontal: 15 , flex:1}}>
+            <View>
+              <Text style={styles.headerText}>Get Help</Text>
+              <Text style={{ paddingVertical: 10, lineHeight: 20 }}>
+                You can chat with a professional and your sessions are
+                completely safe with us, you can also report an incident or
+                document your incidents for safe keeping
+              </Text>
+            </View>
 
-          {/* HELP SECTION */}
-          {/* <SafeAreaView> */}
-          <View style={styles.helps}>
-            <View style={styles.help}>
-              <View
-                style={{
-                  borderRadius: 8,
-                  borderWidth: 0.5,
-                  borderColor: "#e5e8e8",
-                  paddingHorizontal: 10,
-                }}
-              >
-                <Image
-                  source={require("../assets/document-save-green.png")}
-                  style={{ width: 20, resizeMode: "contain" }}
-                />
+            {/* HELP SECTION */}
+            {/* <SafeAreaView> */}
+            <View style={styles.helps}>
+              <View style={styles.help}>
+                <View>
+                  <Image
+                    source={require("../assets/png-icons/help-chat.png")}
+                  />
+                </View>
+                <View style={{ width: "70%" }}>
+                  <Text style={styles.helpText}>Chat with a professional</Text>
+                  <Text style={styles.smallerText}>
+                    If you are feeling overwhelmed you can chat with us, you are
+                    in a safe space
+                  </Text>
+                </View>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate("ongoingChat");
+                  }}
+                >
+                  <Text style={{ fontSize: 18, fontWeight: 600 }}> {">"}</Text>
+                </TouchableOpacity>
               </View>
-              <View style={{ width: "70%" }}>
-                <Text style={styles.helpText}>Chat with a professional</Text>
-                <Text style={styles.smallerText}>
-                  If you are feeling overwhelmed you can chat with us, you are
-                  in a safe space
-                </Text>
+              <View style={styles.help}>
+                <View>
+                  <Image
+                    source={require("../assets/png-icons/help-report.png")}
+                  />
+                </View>
+                <View style={{ width: "70%" }}>
+                  <Text style={styles.helpText}>Report an incident</Text>
+                  <Text style={styles.smallerText}>
+                    We're here to help and support you, Your safety is our top
+                    priority
+                  </Text>
+                </View>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate("report");
+                  }}
+                >
+                  <Text style={{ fontSize: 18, fontWeight: 600 }}> {">"}</Text>
+                </TouchableOpacity>
               </View>
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate("ongoingChat");
-                }}
-              >
-                <Text style={{ fontSize: 18, fontWeight: 600 }}> {">"}</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.help}>
-              <View
-                style={{
-                  borderRadius: 8,
-                  borderWidth: 0.5,
-                  borderColor: "#e5e8e8",
-                  paddingHorizontal: 10,
-                }}
-              >
-                <Image
-                  source={require("../assets/document-save-green.png")}
-                  style={{ width: 20, resizeMode: "contain" }}
-                />
+              <View style={styles.help}>
+                <View>
+                  <Image
+                    source={require("../assets/png-icons/help-document.png")}
+                  />
+                </View>
+                <View style={{ width: "70%" }}>
+                  <Text style={styles.helpText}>Document an incident</Text>
+                  <Text style={styles.smallerText}>
+                    You can document an incident and it is safe on our platform
+                  </Text>
+                </View>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate("document");
+                  }}
+                >
+                  <Text style={{ fontSize: 18, fontWeight: 600 }}> {">"}</Text>
+                </TouchableOpacity>
               </View>
-              <View style={{ width: "70%" }}>
-                <Text style={styles.helpText}>Report an incident</Text>
-                <Text style={styles.smallerText}>
-                  We're here to help and support you, Your safety is our top
-                  priority
-                </Text>
+              <View style={styles.help}>
+                <View>
+                  <Image
+                    source={require("../assets/png-icons/help-near.png")}
+                  />
+                </View>
+                <View style={{ width: "70%" }}>
+                  <Text style={styles.helpText}>Get help near you</Text>
+                  <Text style={styles.smallerText}>
+                    Get to a domestic emergency unit near you
+                  </Text>
+                </View>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate("ongoingChat");
+                  }}
+                >
+                  <Text style={{ fontSize: 18, fontWeight: 600 }}> {">"}</Text>
+                </TouchableOpacity>
               </View>
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate("report");
-                }}
-              >
-                <Text style={{ fontSize: 18, fontWeight: 600 }}> {">"}</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.help}>
-              <View
-                style={{
-                  borderRadius: 8,
-                  borderWidth: 0.5,
-                  borderColor: "#e5e8e8",
-                  paddingHorizontal: 10,
-                }}
-              >
-                <Image
-                  source={require("../assets/document-save-green.png")}
-                  style={{ width: 20, resizeMode: "contain" }}
-                />
-              </View>
-              <View style={{ width: "70%" }}>
-                <Text style={styles.helpText}>Document an incident</Text>
-                <Text style={styles.smallerText}>
-                  You can document an incident and it is safe on our platform
-                </Text>
-              </View>
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate("document");
-                }}
-              >
-                <Text style={{ fontSize: 18, fontWeight: 600 }}> {">"}</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.help}>
-              <View
-                style={{
-                  borderRadius: 8,
-                  borderWidth: 0.5,
-                  borderColor: "#e5e8e8",
-                  paddingHorizontal: 10,
-                }}
-              >
-                <Image
-                  source={require("../assets/document-save-green.png")}
-                  style={{ width: 20, resizeMode: "contain" }}
-                />
-              </View>
-              <View style={{ width: "70%" }}>
-                <Text style={styles.helpText}>Get help near you</Text>
-                <Text style={styles.smallerText}>
-                  Get to a domestic emergency unit near you
-                </Text>
-              </View>
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate("ongoingChat");
-                }}
-              >
-                <Text style={{ fontSize: 18, fontWeight: 600 }}> {">"}</Text>
-              </TouchableOpacity>
             </View>
           </View>
           {/* </SafeAreaView> */}
@@ -158,6 +128,7 @@ export default function Help({ navigation }) {
 
         <StatusBar style="auto" />
       </SafeAreaView>
+      <SafeAreaView style={{backgroundColor:"#fff"}}></SafeAreaView>
     </>
   );
 }
@@ -165,8 +136,6 @@ export default function Help({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
-    // justifyContent: "space-between",
-    paddingHorizontal: 15,
     height: "100%",
   },
   headerText: {
