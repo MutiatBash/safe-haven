@@ -46,25 +46,22 @@ export default function Report({ navigation }) {
                   style={{
                     color: "red",
                     fontSize: 11,
-
-                    // flexShrink: 1,
                   }}
                 >
                   Are you seeking help for yourself
                 </Text>
-                <Image />
+                <Image source={require("../assets/png-icons/heart.png")} />
               </View>
               <View style={[{ backgroundColor: "#ddc7fe" }, styles.incidents]}>
                 <Text
                   style={{
                     color: "purple",
                     fontSize: 11,
-
-                    // flexWrap: "wrap",
                   }}
                 >
                   Are you seeking help for a close friend
                 </Text>
+                <Image source={require("../assets/png-icons/friend.png")} />
               </View>
             </View>
 

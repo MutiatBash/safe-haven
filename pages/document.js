@@ -41,7 +41,7 @@ export default function Document({ navigation }) {
               <View style={styles.incidents}>
                 <TouchableOpacity>
                   <Image
-                    source={require("../assets/document-save-green.png")}
+                    source={require("../assets/png-icons/save-blue.png")}
                     style={{ width: 30, resizeMode: "contain" }}
                   />
                 </TouchableOpacity>
@@ -56,6 +56,13 @@ export default function Document({ navigation }) {
                 </TouchableOpacity>
                 <Text style={{ fontSize: 13 }}>Folder name</Text>
               </View>
+            </View>
+
+            {/* ADD ICON */}
+            <View style={styles.add}>
+              <TouchableOpacity>
+                <Image source={require("../assets/png-icons/plus.png")} />
+              </TouchableOpacity>
             </View>
           </View>
 
@@ -114,6 +121,11 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     gap: 15,
     justifyContent: "space-between",
+  },
+  add: {
+    position: "fixed",
+    bottom: 10,
+    left: "80%",
   },
   incidents: {
     padding: 25,
