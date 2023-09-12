@@ -31,27 +31,47 @@ export default function NewChat({ navigation }) {
             You don't have to deal with this alone.Chat with a trained
             professional and learn about your different options
           </Text>
-          <View style={styles.form}>
-            <View>
-              <Text style={{ paddingVertical: 2 }}>
-                Who is this session for?
-              </Text>
-              <TextInput inputMode="text" style={styles.input} />
-            </View>
-            <View>
-              <Text style={{ paddingVertical: 2 }}>
-                What is your preferred communication mode
-              </Text>
-              <TextInput inputMode="text" style={styles.input} />
-            </View>
-            <View>
-              <Text style={{ paddingVertical: 2 }}>
-                Tell us how you are feeling
-              </Text>
-              <TextInput inputMode="email" style={styles.input} />
-            </View>
-          </View>
 
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={styles.form}>
+              <View>
+                <Text style={{ paddingVertical: 12 }}>
+                  Who is this session for?
+                </Text>
+                <TextInput inputMode="text" style={styles.input} />
+              </View>
+              <View>
+                <Text style={{ paddingVertical: 12 }}>
+                  What is your preferred communication mode ?
+                </Text>
+                <TextInput inputMode="text" style={styles.input} />
+              </View>
+              <View>
+                <Text style={{ paddingVertical: 12 }}>
+                  Tell us how you are feeling
+                </Text>
+                <TextInput
+                  inputMode="text"
+                  multiline={true}
+                  numberOfLines={10}
+                  style={[
+                    { textAlignVertical: "top", height: 100 },
+                    styles.input,
+                  ]}
+                />
+              </View>
+              <View>
+                <TouchableOpacity
+                  onPress={() => {
+                    console.log("pressed");
+                  }}
+                  style={styles.buttonContainer}
+                >
+                  <Text style={styles.button}>Submit</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </ScrollView>
           <TouchableOpacity style={styles.button}>
             <Button title="Submit" color="#fff" />
           </TouchableOpacity>
