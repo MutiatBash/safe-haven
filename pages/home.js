@@ -43,7 +43,9 @@ export default function Home({ navigation }) {
 
             <Image />
           </View>
-          <View style={{ flex: 1, paddingHorizontal: 15, position:"relative" }}>
+          <View
+            style={{ flex: 1, paddingHorizontal: 15, position: "relative" }}
+          >
             {/* RESOURCES SECTION */}
             <View>
               <View style={[styles.welcome]}>
@@ -165,9 +167,9 @@ export default function Home({ navigation }) {
           {/* ADD ICON */}
           <View style={styles.add}>
             <TouchableOpacity>
-            <Text style={{ color: "#fff", fontSize: 20, fontWeight: "bold" }}>
-              +
-            </Text>
+              <Text style={{ color: "#fff", fontSize: 20, fontWeight: "bold" }}>
+                +
+              </Text>
             </TouchableOpacity>
           </View>
 
@@ -178,25 +180,28 @@ export default function Home({ navigation }) {
               onPress={() => navigation.navigate("home")}
               style={{ padding: 6, gap: 3, alignItems: "center" }}
             >
-              {/* <HomeIcon /> */}
+              <Image source={require("../assets/png-icons/home-filled.png")} />
               <Text style={styles.HomeText}>Home</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3 }}
               onPress={() => navigation.navigate("help")}
             >
+              <Image source={require("../assets/png-icons/help.png")} />
               <Text>Help</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3, alignItems: "center" }}
               onPress={() => navigation.navigate("explore")}
             >
+              <Image source={require("../assets/png-icons/explore.png")} />
               <Text>Explore</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3, alignItems: "center" }}
               onPress={() => navigation.navigate("community")}
             >
+              <Image source={require("../assets/png-icons/community.png")} />
               <Text>Community</Text>
             </TouchableOpacity>
           </View>
@@ -211,10 +216,9 @@ export default function Home({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-   
     flexDirection: "column",
     backgroundColor: "#fafafa",
-   
+
     height: "100%",
   },
   loader: {
