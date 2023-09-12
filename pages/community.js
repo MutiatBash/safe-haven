@@ -171,24 +171,28 @@ export default function Community({ navigation }) {
               onPress={() => navigation.navigate("home")}
               style={{ padding: 6, gap: 3, alignItems: "center" }}
             >
+              <Image source={require("../assets/png-icons/home.png")} />
               <Text style={styles.HomeText}>Home</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3 }}
               onPress={() => navigation.navigate("help")}
             >
+              <Image source={require("../assets/png-icons/help.png")} />
               <Text>Help</Text>
             </TouchableOpacity>
             <TouchableOpacity
-               style={{ padding: 6, gap: 3, alignItems: "center" }}
+              style={{ padding: 6, gap: 3, alignItems: "center" }}
               onPress={() => navigation.navigate("explore")}
             >
+              <Image source={require("../assets/png-icons/explore.png")} />
               <Text>Explore</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3, alignItems: "center" }}
               onPress={() => navigation.navigate("community")}
             >
+              <Image source={require("../assets/png-icons/community-filled.png")} />
               <Text>Community</Text>
             </TouchableOpacity>
           </View>
@@ -247,8 +251,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     paddingVertical: 10,
     gap: 15,
-
-  
   },
   tab: {
     alignItems: "center",

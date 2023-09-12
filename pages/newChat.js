@@ -50,6 +50,7 @@ export default function NewChat({ navigation }) {
                 <Text style={{ paddingVertical: 12 }}>
                   Tell us how you are feeling
                 </Text>
+                
                 <TextInput
                   inputMode="text"
                   multiline={true}
