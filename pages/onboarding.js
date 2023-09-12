@@ -119,7 +119,7 @@ export default function Onboarding({ navigation }) {
               ) : (
                 <TouchableOpacity
                   onPress={() => {
-                    navigation.navigate("home");
+                    navigation.navigate("signup");
                   }}
                   style={styles.buttonContainer}
                 >

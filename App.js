@@ -14,7 +14,7 @@ import ClosedChat from "./pages/closedChat";
 import setDefaultProps from "react-native-simple-default-props";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, TextInput } from "react-native";
 import { AuthProvider } from "./authContext";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -45,6 +45,7 @@ export default function App(props) {
       PlayfairDisplay: require("./assets/fonts/PlayFairDisplay/PlayfairDisplay-Regular.ttf"),
     }).then(() => {
       setDefaultProps(Text, defaultText);
+      setDefaultProps(TextInput, defaultText);
       setLoaded(true);
     });
   }, []);
