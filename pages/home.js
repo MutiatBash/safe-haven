@@ -31,18 +31,19 @@ export default function Home({ navigation }) {
                 flexDirection: "row",
                 alignItems: "center",
                 justifyContent: "space-between",
+                gap: 10,
               }}
             >
-              <Image source={require("../assets/avatar-2.png")} />
+              <Image source={require("../assets/avatar.png")} />
               <View>
                 <Text>Welcome back</Text>
-                <Text style={styles.headerText}>{username}</Text>
+                <Text style={styles.headerText}>Ashley Gates</Text>
               </View>
             </View>
 
             <Image />
           </View>
-          <View style={{ flex: 1, paddingHorizontal: 15 }}>
+          <View style={{ flex: 1, paddingHorizontal: 15, position:"relative" }}>
             {/* RESOURCES SECTION */}
             <View>
               <View style={[styles.welcome]}>
@@ -161,6 +162,15 @@ export default function Home({ navigation }) {
             </View>
           </View>
 
+          {/* ADD ICON */}
+          <View style={styles.add}>
+            <TouchableOpacity>
+            <Text style={{ color: "#fff", fontSize: 20, fontWeight: "bold" }}>
+              +
+            </Text>
+            </TouchableOpacity>
+          </View>
+
           {/* BOTTOM NAVIGATION */}
 
           <View style={styles.tab}>
@@ -201,10 +211,10 @@ export default function Home({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    // paddingHorizontal: 15,
+   
     flexDirection: "column",
     backgroundColor: "#fafafa",
-    // justifyContent: "space-between",
+   
     height: "100%",
   },
   loader: {
@@ -227,20 +237,17 @@ const styles = StyleSheet.create({
     fontSize: 10.5,
     paddingTop: 5,
   },
-  buttoncontainer: {
-    width: "90%",
-    borderRadius: 8,
-    marginTop: 45,
-    fontSize: 6,
+  add: {
+    borderRadius: 100,
+    width: 50,
+    height: 50,
+    position: "fixed",
+    bottom: 10,
+    left: "80%",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 128,128,255)",
   },
-  button: {
-    display: "flex",
-    textAlign: "center",
-    borderRadius: 8,
-    paddingVertical: 6,
-    fontSize: 6,
-    paddingHorizontal: 6,
-  },
+
   resource: {
     flexDirection: "column",
     paddingHorizontal: 10,

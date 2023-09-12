@@ -14,58 +14,106 @@ import {
   TouchableOpacity,
 } from "react-native";
 import CheckBox from "expo-checkbox";
-// import { AuthContext } from "../authContext.js";
-// import { LinearGradient } from "expo-linear-gradient";
-// import { FIREBASE_AUTH } from "../firebase";
+// import { AuthContext } from "../authContext.js"
 // import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState, useContext, useCallback, useEffect } from "react";
-// import * as
 
 export default function Report({ navigation }) {
   return (
     <>
       <SafeAreaView style={{ backgroundColor: "#fff", flex: 1 }}>
         <View style={styles.container}>
-          <Text style={styles.HeaderText}>Report an incident</Text>
-          <Text>
-            Details of the incident should remain in a neutral tone stating only
-            facts.
-          </Text>
+          <View style={styles.header}>
+            <Text>{"<"}</Text>
+            <Text style={styles.headerText}>Chat with a professional</Text>
+          </View>
+          <View
+            style={{ height: 1, width: "100%", backgroundColor: "#e5e8e8" }}
+          ></View>
 
-          {/* INCIDENT TYPE */}
+          {/* INCIDENT DETAILS PAGE */}
+          <View style={{ paddingHorizontal: 15, paddingVertical: 10, flex: 1 }}>
+            <Text>
+              Details of the incident should remain in a neutral tone stating
+              only facts.
+            </Text>
 
-          <View>
-            <View>
-              <Text> Are you seeking help for yourself</Text>
+            {/* INCIDENT TYPE */}
+
+            <View style={styles.incidentType}>
+              <View style={[{ backgroundColor: "#fdcbcb" }, styles.incidents]}>
+                <Text
+                  style={{
+                    color: "red",
+                    fontSize: 11,
+
+                    // flexShrink: 1,
+                  }}
+                >
+                  Are you seeking help for yourself
+                </Text>
+                <Image />
+              </View>
+              <View style={[{ backgroundColor: "#ddc7fe" }, styles.incidents]}>
+                <Text
+                  style={{
+                    color: "purple",
+                    fontSize: 11,
+
+                    // flexWrap: "wrap",
+                  }}
+                >
+                  Are you seeking help for a close friend
+                </Text>
+              </View>
             </View>
-            <View>
-              <Text> Are you seeking help for a close friend</Text>
-            </View>
+
+            {/* REPORT FORM */}
+            <ScrollView showsVerticalScrollIndicator={false}>
+              <View style={styles.form}>
+                <View>
+                  <Text style={{ paddingVertical: 12 }}>Title</Text>
+                  <TextInput inputMode="text" style={styles.input} />
+                </View>
+                <View>
+                  <Text style={{ paddingVertical: 12 }}>
+                    When did this happen?
+                  </Text>
+                  <TextInput inputMode="text" style={styles.input} />
+                </View>
+                <View>
+                  <Text style={{ paddingVertical: 12 }}>What happened?</Text>
+                  <TextInput
+                    inputMode="text"
+                    multiline={true}
+                    numberOfLines={10}
+                    style={[
+                      { textAlignVertical: "top", height: 100 },
+                      styles.input,
+                    ]}
+                  />
+                </View>
+                <View>
+                  <Text style={{ paddingVertical: 12 }}>Add File </Text>
+                  <View style={styles.addFile}>
+                    <Text>+</Text>
+                  </View>
+                </View>
+                <View>
+                  <TouchableOpacity
+                    onPress={() => {
+                      navigation.navigate("home");
+                      console.log("pressed");
+                    }}
+                    style={styles.buttonContainer}
+                  >
+                    <Text style={styles.button}>Submit</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </ScrollView>
           </View>
 
-          {/* REPORT FORM */}
-          <View style={styles.form}>
-            <View>
-              <Text style={{ paddingVertical: 2 }}>Title</Text>
-              <TextInput inputMode="text" style={styles.input} />
-            </View>
-            <View>
-              <Text style={{ paddingVertical: 2 }}>When did this happen?</Text>
-              <TextInput inputMode="text" style={styles.input} />
-            </View>
-            <View>
-              <Text style={{ paddingVertical: 2 }}>What happened?</Text>
-              <TextInput inputMode="email" style={styles.input} />
-            </View>
-            <View>
-              <Text>Add File </Text>
-              <View></View>
-            </View>
-          </View>
-
-          <TouchableOpacity style={styles.button}>
-            <Button title="Submit" color="#fff" />
-          </TouchableOpacity>
           <StatusBar style="auto" />
         </View>
       </SafeAreaView>
@@ -75,8 +123,8 @@ export default function Report({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
     height: "100%",
+    // alignItems: "center",
   },
   loader: {
     alignItems: "center",
@@ -94,93 +142,67 @@ const styles = StyleSheet.create({
     width: 16,
     height: 16,
   },
-  search: {
-    alignSelf: "flex-end",
-    width: 50,
-    height: 50,
-    paddingRight: 16,
-  },
   input: {
     backgroundColor: "#fff",
-    borderWidth: 1,
-    borderRadius: 8,
-    padding: 10,
+    borderWidth: 0.5,
+    borderRadius: 5,
+    borderColor: "#e5e8e8",
+    padding: 12,
     width: "100%",
-    // alignSelf: "center",
   },
-  HeaderText: {
-    color: "#411465",
-    textAlign: "center",
-    // fontFamily: "Inter",
-    fontSize: 21,
+  headerText: {
+    fontSize: 18,
     fontWeight: 600,
-    letterSpacing: -0.025,
-    paddingVertical: 3,
+    paddingLeft: 30,
+    alignSelf: "flex-end",
   },
-  logo: {
-    marginVertical: 5,
-    width: 120,
-    height: 120,
-    resizeMode: "contain",
-  },
-  buttoncontainer: {
-    width: "90%",
-    borderRadius: 8,
-    marginBottom: 18,
-    marginTop: 25,
-    fontSize: 6,
-  },
-  button: {
-    display: "flex",
-    // backgroundColor: "#411465",
-    // background: radial-gradient("387.30%" "66.49%" at "42.68%" "-0.00%," "#411465" "0%", "#806298" "100%"),
-    textAlign: "center",
-    borderRadius: 8,
-    paddingVertical: 7,
-    fontSize: 6,
-    paddingHorizontal: 30,
+  header: {
+    paddingVertical: 20,
+    flexDirection: "row",
+    paddingHorizontal: 15,
+    gap: 30,
+    alignItems: "center",
   },
   form: {
     flexDirection: "column",
-    // alignItems: "center",
-    width: "90%",
     paddingVertical: 20,
     gap: 15,
     justifyContent: "space-between",
   },
-  forgotcontainer: {
+  incidents: {
+    padding: 15,
+    borderRadius: 6,
+    flexShrink: 1,
+    width: "50%",
+  },
+  incidentType: {
     flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 20,
     gap: 10,
-    paddingBottom: 2,
-    alignItems: "center",
+    // width: "100%"
     justifyContent: "space-between",
   },
-  Signupcontainer: {
-    flexDirection: "column",
+  addFile: {
+    borderRadius: 5,
+    borderWidth: 0.5,
+    borderColor: "#e5e8e8",
     alignItems: "center",
-    gap: 15,
-    // width: 300,
-    justifyContent: "space-between",
+    width: "30%",
+    padding: 30,
   },
-  forgotText: {
-    color: "#411465",
+  buttonContainer: {
+    backgroundColor: "rgba(0, 128,128,255)",
+    borderRadius: 8,
+    paddingHorizontal: 18,
+    marginTop:10,
+    paddingVertical: 10,
   },
-  SignupText: {
-    color: "#411465",
-    fontWeight: 600,
-    textDecorationLine: "underline",
-  },
-  whiteText: {
-    alignSelf: "center",
+  button: {
+    textAlign: "center",
     color: "#fff",
-  },
-  bodyText: {
-    fontSize: 13,
-    alignSelf: "center",
-  },
-  subHeadText: {
-    fontSize: 15,
-    // textAlign: "center",
-    fontWeight: "bold",
+    fontSize: 16,
+    paddingVertical: 8,
+    fontWeight: 500,
   },
 });

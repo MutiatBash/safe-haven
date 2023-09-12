@@ -41,7 +41,7 @@ export default function Community({ navigation }) {
                 style={{
                   flexDirection: "row",
                   justifyContent: "space-between",
-                  paddingVertical: 10,
+                  paddingVertical: 12,
                 }}
               >
                 <View>
@@ -72,13 +72,35 @@ export default function Community({ navigation }) {
             </View>
 
             {/* GROUP NFORMATION */}
-            <View>
+            <View style={{ flex: 1 }}>
               <ScrollView>
-                <Text> But I must explain to you how all this</Text>
+                <Text style={styles.rulesText}>
+                  But I must explain to you how all this mistaken idea of
+                  denouncing pleasure and praising pain was born and I will give
+                  you a complete account of the system, and expound the actual
+                  But I must explain to you how all this mistaken idea of
+                  denouncing pleasure and praising pain was born and I will give
+                  you a complete account of the system, and expound the actual.
+                  But I must explain to you how all this mistaken idea of
+                  denouncing pleasure and praising pain was born and I will give
+                  you a complete account of the system, and expound the
+                  actualBut I must explain to you how all this mistaken idea of
+                  denouncing pleasure and praising pain was born and I will give
+                  you a complete account of the system, and expound the actual
+                  But I must explain to you how all this mistaken idea of
+                  denouncing pleasure and praising pain was born and I will give
+                  you a complete account of the system, and expound the actual.
+                </Text>
 
                 {/* MODERATORS SECTION */}
                 <View>
-                  <Text style={{ fontWeight: 600, paddingVertical: 10 }}>
+                  <Text
+                    style={{
+                      fontWeight: 600,
+                      paddingVertical: 12,
+                      fontSize: 15,
+                    }}
+                  >
                     Moderators
                   </Text>
 
@@ -98,7 +120,24 @@ export default function Community({ navigation }) {
                   </View>
                   <View style={styles.rules}>
                     <Text>Rules</Text>
-                    <Text>1. </Text>
+                    <Text style={styles.rulesText}>
+                      1. But I must explain to you how all this mistaken idea of
+                      denouncing pleasure and praising pain was born and I will
+                      give you a complete account of the system, and expound the
+                      actual
+                    </Text>
+                    <Text style={styles.rulesText}>
+                      2. But I must explain to you how all this mistaken idea of
+                      denouncing pleasure and praising pain was born and I will
+                      give you a complete account of the system, and expound the
+                      actual
+                    </Text>
+                    <Text style={styles.rulesText}>
+                      3. But I must explain to you how all this mistaken idea of
+                      denouncing pleasure and praising pain was born and I will
+                      give you a complete account of the system, and expound the
+                      actual
+                    </Text>
                   </View>
 
                   <View>
@@ -114,7 +153,7 @@ export default function Community({ navigation }) {
                           textAlign: "center",
                           color: "#fff",
                           fontSize: 16,
-                          paddingVertical:9,
+                          paddingVertical: 9,
                           fontWeight: 500,
                         }}
                       >
@@ -141,7 +180,7 @@ export default function Community({ navigation }) {
               <Text>Help</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
+               style={{ padding: 6, gap: 3, alignItems: "center" }}
               onPress={() => navigation.navigate("explore")}
             >
               <Text>Explore</Text>
@@ -173,12 +212,15 @@ const styles = StyleSheet.create({
 
   headerText: {
     // fontFamily: "Inter",
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: 600,
   },
   smallText: {
     fontSize: 12,
     paddingTop: 5,
+  },
+  rulesText: {
+    fontSize: 13,
   },
   buttonContainer: {
     backgroundColor: "rgba(0, 128,128,255)",
@@ -194,43 +236,19 @@ const styles = StyleSheet.create({
     fontSize: 6,
     paddingHorizontal: 6,
   },
-  price: {
-    fontSize: 18,
-    fontWeight: 700,
-  },
-  booksContainer: {
-    flexDirection: "row",
-    // alignItems: "center",
-    paddingVertical: 15,
-    flexWrap: "wrap",
-    columnGap: 6,
-    rowGap: 16,
-    justifyContent: "center",
-  },
-  book: {
-    flexDirection: "column",
-    // alignItems: "center",
-    gap: 5,
-    justifyContent: "center",
-    padding: 10,
-    border: "none",
-    backgroundColor: "#fff",
-    borderRadius: 8,
-  },
-  shadowProp: {
-    shadowColor: "#696969",
-    shadowOffset: { width: 0.5, height: 3 },
-    shadowOpacity: 0.14,
-    shadowRadius: 6,
-    elevation: 6,
-  },
   welcome: {
     flexDirection: "row",
     paddingVertical: 10,
-    // paddingHorizontal: 25,
     gap: 20,
     width: "100%",
     justifyContent: "flex-start",
+  },
+  rules: {
+    flexDirection: "column",
+    paddingVertical: 10,
+    gap: 15,
+
+  
   },
   tab: {
     alignItems: "center",
