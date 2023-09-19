@@ -147,7 +147,7 @@ export default function Home({ navigation }) {
                       width: 47,
                       height: 45,
                       resizeMode: "contain",
-                    }}
+                    }} 
                   />
                   <View>
                     <Text style={styles.communityText}>
