@@ -18,13 +18,17 @@ import { AuthContext } from "../authContext.js";
 // import { auth} from "../firebase";
 // import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState, useContext, useCallback, useEffect } from "react";
+import logo from "../assets/logo-sm.png";
+
+const DOUsername = require("do_username");
 
 export default function Signup({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
-  const { loading, setLoading, username, setUsername, error, setError } =
+  const { loading, setLoading, setUsername, error, setError } =
     useContext(AuthContext);
+  const username = DOUsername.generate();
 
   // const handleSignup = async () => {
   //   if (!email.trim() || !password.trim() || !username.trim()) {
@@ -64,7 +68,7 @@ export default function Signup({ navigation }) {
       {/* {loading ? <Text>Creating user</Text> : null} */}
       <SafeAreaView style={{ backgroundColor: "#fff", flex: 1 }}>
         <View style={styles.container}>
-          <Image style={styles.logo} />
+          <Image source={logo} style={styles.logo} />
           <Text style={styles.HeaderText}>Create a new account</Text>
           <Text
             style={{ paddingVertical: 10, fontSize: 14, textAlign: "left" }}
@@ -89,6 +93,7 @@ export default function Signup({ navigation }) {
                 style={styles.input}
                 value={username}
                 onChangeText={(text) => setUsername(text)}
+                editable={false}
               />
             </View>
             <View>
@@ -123,12 +128,20 @@ export default function Signup({ navigation }) {
           <View>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate("home");
-                console.log("pressed");
+                navigation.navigate("avatar");
               }}
               style={styles.buttonContainer}
             >
-              <Text style={{textAlign:"center",color:"#fff",fontSize:18, fontWeight:500,}}>Create account</Text>
+              <Text
+                style={{
+                  textAlign: "center",
+                  color: "#fff",
+                  fontSize: 18,
+                  fontWeight: 500,
+                }}
+              >
+                Create account
+              </Text>
             </TouchableOpacity>
           </View>
 

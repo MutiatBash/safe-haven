@@ -22,6 +22,7 @@ import domesticViolence from "../assets/explore-domestic-violence.png";
 import help from "../assets/explore-help.png";
 import victim from "../assets/explore-victim.png";
 import scared from "../assets/explore-scared.png";
+import { Navigation } from "./home";
 
 function ArticleAuthor() {
   return (
@@ -95,137 +96,116 @@ export default function Explore({ navigation }) {
   ];
 
   return (
-    <SafeAreaView
-      style={{ backgroundColor: "#F5F5F5", flex: 1, height: "100%" }}
-    >
-      <View style={styles.container}>
-        <View style={styles.welcome}>
-          <View
-            style={[
-              activeTab == "resources" && styles.activeTabHeader,
-              styles.headerContainer,
-            ]}
-          >
-            <Text
-              style={styles.tabHeader}
-              onPress={() => {
-                setActiveTab("resources");
-              }}
-            >
-              Resources
-            </Text>
-          </View>
-          <View
-            style={[
-              activeTab == "hotlines" && styles.activeTabHeader,
-              styles.headerContainer,
-            ]}
-          >
-            <Text
-              style={styles.tabHeader}
-              onPress={() => {
-                setActiveTab("hotlines");
-              }}
-            >
-              Hotlines
-            </Text>
-          </View>
-        </View>
-
-        {activeTab == "resources" && (
-          <View style={{ width: "100%", alignItems: "center" }}>
-            <View style={{ width: "90%" }}>
-              <TextInput
-                inputMode="text"
-                style={styles.input}
-                placeholder="Search for articles, educational content etc"
-              />
-            </View>
-            {/* ARTICLES SECTION */}
-            <View style={{ width: "90%", marginVertical: 20 }}>
-              <View style={{ backgroundColor: "#fff", borderRadius: 6 }}>
-                <Image
-                  source={abuser}
-                  style={{ width: "100%", borderRadius: 6 }}
-                />
-                <View style={{ padding: 15 }}>
-                  <Text style={{ fontSize: 18 }}>How I Escaped My Abuser</Text>
-                  <ArticleAuthor />
-                </View>
+    <>
+      <SafeAreaView style={{ backgroundColor: "#F5F5F5", flex: 1 }}>
+        <View style={styles.container}>
+          <View style={{ width: "100%", alignItems: "center", flex: 1 }}>
+            <View style={styles.welcome}>
+              <View
+                style={[
+                  activeTab == "resources" && styles.activeTabHeader,
+                  styles.headerContainer,
+                ]}
+              >
+                <Text
+                  style={styles.tabHeader}
+                  onPress={() => {
+                    setActiveTab("resources");
+                  }}
+                >
+                  Resources
+                </Text>
               </View>
+              <View
+                style={[
+                  activeTab == "hotlines" && styles.activeTabHeader,
+                  styles.headerContainer,
+                ]}
+              >
+                <Text
+                  style={styles.tabHeader}
+                  onPress={() => {
+                    setActiveTab("hotlines");
+                  }}
+                >
+                  Hotlines
+                </Text>
+              </View>
+            </View>
 
-              <ScrollView>
-                {articles.map((article) => (
-                  <View style={styles.article} key={article.image}>
-                    <View>
-                      <Image source={article.image} />
-                    </View>
-                    <View style={{ width: "70%" }}>
-                      <Text style={styles.headerText}>{article.title}</Text>
-                      <Text style={styles.smallText}>
-                        {article.description}
+            {activeTab == "resources" && (
+              <View style={{ width: "100%", alignItems: "center" }}>
+                <View style={{ width: "90%" }}>
+                  <TextInput
+                    inputMode="text"
+                    style={styles.input}
+                    placeholder="Search for articles, educational content etc"
+                  />
+                </View>
+                {/* ARTICLES SECTION */}
+                <View style={{ width: "90%", marginVertical: 20 }}>
+                  <View style={{ backgroundColor: "#fff", borderRadius: 6 }}>
+                    <Image
+                      source={abuser}
+                      style={{ width: "100%", borderRadius: 6 }}
+                    />
+                    <View style={{ padding: 15 }}>
+                      <Text style={{ fontSize: 18 }}>
+                        How I Escaped My Abuser
                       </Text>
                       <ArticleAuthor />
                     </View>
                   </View>
-                ))}
-              </ScrollView>
-            </View>
-          </View>
-        )}
 
-        {activeTab == "hotlines" && (
-          <View style={{ width: "100%", alignItems: "center" }}>
-            {/* HOTLINES SECTION */}
-            <View style={{ width: "90%" }}>
-              <ScrollView>
-                {hotlines.map((hotline) => (
-                  <View style={styles.article} key={hotline.title}>
-                    <View style={{ width: "100%" }}>
-                      <Text style={styles.headerText}>{hotline.title}</Text>
-                      <Text style={styles.smallText}>
-                        But I must explain to you how all this mistaken idea of
-                        denouncing pleasure and praising pain was born...
-                      </Text>
-                      <Text style={styles.smallText}>{hotline.code}</Text>
-                    </View>
-                  </View>
-                ))}
-              </ScrollView>
-            </View>
-          </View>
-        )}
+                  <ScrollView contentContainerStyle={{}}>
+                    {articles.map((article) => (
+                      <View style={styles.article} key={article.image}>
+                        <View>
+                          <Image source={article.image} />
+                        </View>
+                        <View style={{ width: "70%" }}>
+                          <Text style={styles.headerText}>{article.title}</Text>
+                          <Text style={styles.smallText}>
+                            {article.description}
+                          </Text>
+                          <ArticleAuthor />
+                        </View>
+                      </View>
+                    ))}
+                  </ScrollView>
+                </View>
+              </View>
+            )}
 
-        <View style={styles.tab}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("home")}
-            style={{ padding: 6, gap: 3, alignItems: "center" }}
-          >
-            <Text style={styles.HomeText}>Home</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ padding: 6, gap: 3 }}
-            onPress={() => navigation.navigate("help")}
-          >
-            <Text>Help</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ padding: 6, gap: 3, alignItems: "center" }}
-            onPress={() => navigation.navigate("explore")}
-          >
-            <Text>Explore</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ padding: 6, gap: 3, alignItems: "center" }}
-            onPress={() => navigation.navigate("community")}
-          >
-            <Text>Community</Text>
-          </TouchableOpacity>
+            {activeTab == "hotlines" && (
+              <View style={{ width: "100%", alignItems: "center" }}>
+                {/* HOTLINES SECTION */}
+                <View style={{ width: "90%" }}>
+                  <ScrollView>
+                    {hotlines.map((hotline) => (
+                      <View style={styles.article} key={hotline.title}>
+                        <View style={{ width: "100%" }}>
+                          <Text style={styles.headerText}>{hotline.title}</Text>
+                          <Text style={styles.smallText}>
+                            But I must explain to you how all this mistaken idea
+                            of denouncing pleasure and praising pain was born...
+                          </Text>
+                          <Text style={styles.smallText}>{hotline.code}</Text>
+                        </View>
+                      </View>
+                    ))}
+                  </ScrollView>
+                </View>
+              </View>
+            )}
+          </View>
+          <Navigation navigation={navigation} activePage="explore" />
         </View>
-      </View>
+        <StatusBar style="auto" />
+      </SafeAreaView>
+      <SafeAreaView style={{ backgroundColor: "#fff" }}></SafeAreaView>
 
-      <StatusBar style="auto" />
-    </SafeAreaView>
+    </>
   );
 }
 
@@ -334,18 +314,12 @@ const styles = StyleSheet.create({
     elevation: 6,
   },
   tab: {
-    // position: "absolute",
-    // zIndex: 1,
-    // bottom: 0,
-    // left: 0,
-    // right: 0,
     alignItems: "center",
     backgroundColor: "#fff",
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 15,
-    paddingTop: 12,
-    borderRadiusTopRight: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 15,
     gap: 10,
     width: "100%",
     justifyContent: "space-between",

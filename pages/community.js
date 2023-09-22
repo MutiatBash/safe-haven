@@ -19,6 +19,7 @@ import {
 // import { ToastContainer } from "react-native-toast-message";
 import { useState, useContext, useCallback, useEffect } from "react";
 // import { auth } from "../firebase";
+import { Navigation } from "./home";
 
 export default function Community({ navigation }) {
   return (
@@ -166,36 +167,7 @@ export default function Community({ navigation }) {
             </View>
           </View>
 
-          <View style={styles.tab}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("home")}
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
-            >
-              <Image source={require("../assets/png-icons/home.png")} />
-              <Text style={styles.HomeText}>Home</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ padding: 6, gap: 3 }}
-              onPress={() => navigation.navigate("help")}
-            >
-              <Image source={require("../assets/png-icons/help.png")} />
-              <Text>Help</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
-              onPress={() => navigation.navigate("explore")}
-            >
-              <Image source={require("../assets/png-icons/explore.png")} />
-              <Text>Explore</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
-              onPress={() => navigation.navigate("community")}
-            >
-              <Image source={require("../assets/png-icons/community-filled.png")} />
-              <Text>Community</Text>
-            </TouchableOpacity>
-          </View>
+          <Navigation navigation={navigation}  activePage="community"  />
         </View>
         <StatusBar style="auto" />
       </SafeAreaView>
