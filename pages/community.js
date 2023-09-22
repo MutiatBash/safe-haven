@@ -19,94 +19,155 @@ import {
 // import { ToastContainer } from "react-native-toast-message";
 import { useState, useContext, useCallback, useEffect } from "react";
 // import { auth } from "../firebase";
+import { Navigation } from "./home";
 
 export default function Community({ navigation }) {
   return (
     <>
       <SafeAreaView style={{ backgroundColor: "#fff", flex: 1 }}>
         <View style={styles.container}>
-          <View style={styles.welcome}>
+          <View style={{ flex: 1, paddingHorizontal: 15 }}>
             <View>
-              <Image />
-            </View>
-            <View>
-              <View>
-                <Text style={styles.HeaderText}>Safehaven action fight</Text>
-                <Text style={styles.smallText}>joined by 30m members</Text>
+              <View style={{ borderRadius: 8 }}>
+                <Image
+                  source={require("../assets/community-safehaven.png")}
+                  style={{
+                    width: "100%",
+
+                    resizeMode: "contain",
+                  }}
+                />
               </View>
-              <View>
-                <Button title="join"></Button>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  paddingVertical: 12,
+                }}
+              >
+                <View>
+                  <Text style={styles.headerText}>Safehaven action fight</Text>
+                  <Text style={styles.smallText}>joined by 30m members</Text>
+                </View>
+                <View>
+                  <TouchableOpacity
+                    onPress={() => {
+                      navigation.navigate("home");
+                      console.log("pressed");
+                    }}
+                    style={styles.buttonContainer}
+                  >
+                    <Text
+                      style={{
+                        textAlign: "center",
+                        color: "#fff",
+                        fontSize: 14,
+                        fontWeight: 500,
+                      }}
+                    >
+                      join
+                    </Text>
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
-            <Image />
+
+            {/* GROUP NFORMATION */}
+            <View style={{ flex: 1 }}>
+              <ScrollView>
+                <Text style={styles.rulesText}>
+                  But I must explain to you how all this mistaken idea of
+                  denouncing pleasure and praising pain was born and I will give
+                  you a complete account of the system, and expound the actual
+                  But I must explain to you how all this mistaken idea of
+                  denouncing pleasure and praising pain was born and I will give
+                  you a complete account of the system, and expound the actual.
+                  But I must explain to you how all this mistaken idea of
+                  denouncing pleasure and praising pain was born and I will give
+                  you a complete account of the system, and expound the
+                  actualBut I must explain to you how all this mistaken idea of
+                  denouncing pleasure and praising pain was born and I will give
+                  you a complete account of the system, and expound the actual
+                  But I must explain to you how all this mistaken idea of
+                  denouncing pleasure and praising pain was born and I will give
+                  you a complete account of the system, and expound the actual.
+                </Text>
+
+                {/* MODERATORS SECTION */}
+                <View>
+                  <Text
+                    style={{
+                      fontWeight: 600,
+                      paddingVertical: 12,
+                      fontSize: 15,
+                    }}
+                  >
+                    Moderators
+                  </Text>
+
+                  <View style={styles.welcome}>
+                    <Image source={require("../assets/moderator-1.png")} />
+                    <View>
+                      <Text style={styles.headerText}>Abiola Adeshola</Text>
+                      <Text style={styles.smallText}>@Abisola</Text>
+                    </View>
+                  </View>
+                  <View style={styles.welcome}>
+                    <Image source={require("../assets/moderator-2.png")} />
+                    <View>
+                      <Text style={styles.headerText}>Elizabeth Okoro</Text>
+                      <Text style={styles.smallText}>@Eli267</Text>
+                    </View>
+                  </View>
+                  <View style={styles.rules}>
+                    <Text>Rules</Text>
+                    <Text style={styles.rulesText}>
+                      1. But I must explain to you how all this mistaken idea of
+                      denouncing pleasure and praising pain was born and I will
+                      give you a complete account of the system, and expound the
+                      actual
+                    </Text>
+                    <Text style={styles.rulesText}>
+                      2. But I must explain to you how all this mistaken idea of
+                      denouncing pleasure and praising pain was born and I will
+                      give you a complete account of the system, and expound the
+                      actual
+                    </Text>
+                    <Text style={styles.rulesText}>
+                      3. But I must explain to you how all this mistaken idea of
+                      denouncing pleasure and praising pain was born and I will
+                      give you a complete account of the system, and expound the
+                      actual
+                    </Text>
+                  </View>
+
+                  <View>
+                    <TouchableOpacity
+                      onPress={() => {
+                        navigation.navigate("home");
+                        console.log("pressed");
+                      }}
+                      style={styles.buttonContainer}
+                    >
+                      <Text
+                        style={{
+                          textAlign: "center",
+                          color: "#fff",
+                          fontSize: 16,
+                          paddingVertical: 9,
+                          fontWeight: 500,
+                        }}
+                      >
+                        Join Community
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </ScrollView>
+            </View>
           </View>
 
-          {/* GROUP NFORMATION */}
-          <View>
-            <Text> hjbjhbghjghjjfhf</Text>
-          </View>
-
-          {/* MODERATORS SECTION */}
-          <View>
-            <View style={[styles.welcome]}>
-              <Text style={{ fontWeight: 600 }}> Moderators</Text>
-            </View>
-            <ScrollView>
-              <View style={styles.welcome}>
-                <View>
-                  <Image />
-                </View>
-                <View>
-                  <Text style={styles.headerText}>Abiola Adeshola</Text>
-                  <Text style={styles.smallText}>@Abisola</Text>
-                </View>
-              </View>
-              <View style={styles.welcome}>
-                <View>
-                  <Image />
-                </View>
-                <View>
-                  <Text style={styles.headerText}>Abiola Adeshola</Text>
-                  <Text style={styles.smallText}>@Abisola</Text>
-                </View>
-              </View>
-              <View style={styles.welcome}>
-                <Text>Rules</Text>
-                <Text style={styles.headerText}>Support You</Text>
-                <Text style={styles.smallText}>10K Members</Text>
-              </View>
-            </ScrollView>
-            <TouchableOpacity style={styles.button}>
-              <Button title="Join Community" color="#fff" />
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.tab}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("home")}
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
-            >
-              <Text style={styles.HomeText}>Home</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ padding: 6, gap: 3 }}
-              onPress={() => navigation.navigate("help")}
-            >
-              <Text>Help</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
-              onPress={() => navigation.navigate("explore")}
-            >
-              <Text>Explore</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
-              onPress={() => navigation.navigate("community")}
-            >
-              <Text>Community</Text>
-            </TouchableOpacity>
-          </View>
+          <Navigation navigation={navigation}  activePage="community"  />
         </View>
         <StatusBar style="auto" />
       </SafeAreaView>
@@ -116,7 +177,6 @@ export default function Community({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
     height: "100%",
   },
   loader: {
@@ -125,26 +185,24 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "column",
   },
-  //   safeview: {
-  //     paddingTop: 10,
-  //     backgroundColor: "#fff",
-  //     alignItems: "center",
-  //     height: "100%",
-  //   },
-  HeaderText: {
+
+  headerText: {
     // fontFamily: "Inter",
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: 600,
   },
   smallText: {
-    fontSize: 16,
+    fontSize: 12,
     paddingTop: 5,
   },
-  buttoncontainer: {
-    width: "90%",
+  rulesText: {
+    fontSize: 13,
+  },
+  buttonContainer: {
+    backgroundColor: "rgba(0, 128,128,255)",
     borderRadius: 8,
-    marginTop: 45,
-    fontSize: 6,
+    paddingHorizontal: 18,
+    paddingVertical: 10,
   },
   button: {
     display: "flex",
@@ -154,73 +212,31 @@ const styles = StyleSheet.create({
     fontSize: 6,
     paddingHorizontal: 6,
   },
-  price: {
-    fontSize: 18,
-    fontWeight: 700,
-  },
-  booksContainer: {
-    flexDirection: "row",
-    // alignItems: "center",
-    paddingVertical: 15,
-    flexWrap: "wrap",
-    columnGap: 6,
-    rowGap: 16,
-    justifyContent: "center",
-  },
-  book: {
-    flexDirection: "column",
-    // alignItems: "center",
-    gap: 5,
-    justifyContent: "center",
-    padding: 10,
-    border: "none",
-    backgroundColor: "#fff",
-    borderRadius: 8,
-  },
-  shadowProp: {
-    shadowColor: "#696969",
-    shadowOffset: { width: 0.5, height: 3 },
-    shadowOpacity: 0.14,
-    shadowRadius: 6,
-    elevation: 6,
-  },
   welcome: {
     flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 18,
-    paddingHorizontal: 25,
+    paddingVertical: 10,
     gap: 20,
     width: "100%",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
+  },
+  rules: {
+    flexDirection: "column",
+    paddingVertical: 10,
+    gap: 15,
   },
   tab: {
-    // position: "absolute",
-    // zIndex: 1,
-    // bottom: 0,
-    // left: 0,
-    // right: 0,
     alignItems: "center",
     backgroundColor: "#fff",
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 15,
-    paddingTop: 12,
-    borderRadiusTopRight: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 15,
     gap: 10,
     width: "100%",
     justifyContent: "space-between",
   },
   HomeText: {
-    color: "#411465",
+    color: "rgba(0, 128,128,255)",
     fontWeight: 600,
-  },
-  genre: {
-    flexDirection: "row",
-    alignItems: "center",
-    color: "#411465",
-    backgroundColor: "#D9D0E0",
-    paddingVertical: 6,
-    paddingHorizontal: 10,
-    borderRadius: 6,
   },
 });

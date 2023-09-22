@@ -23,49 +23,158 @@ export default function ClosedChat({ navigation }) {
       <SafeAreaView style={{ backgroundColor: "#fff", flex: 1 }}>
         <View style={styles.container}>
           {/* CHAT SECTION */}
+          <View style={styles.header}>
+            <Text>{"<"}</Text>
+            <Text style={styles.headerText}>Chat with a professional</Text>
+          </View>
+          <View
+            style={{ height: 1, width: "100%", backgroundColor: "#e5e8e8" }}
+          ></View>
+          <View style={styles.session}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("ongoingChat");
+              }}
+            >
+              <Text style={{ color: "#e5e8e8" }}>Ongoing</Text>
+            </TouchableOpacity>
+            <View>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("closedChat");
+                }}
+              >
+                <Text style={{ fontWeight: 600 }}>Closed</Text>
+              </TouchableOpacity>
 
-          <View style={[styles.welcome]}>
-            <Text style={{ fontWeight: 600 }}> Ongoing</Text>
-            <Text style={{ fontWeight: 600 }}> Closed</Text>
+              <View
+                style={{ height: 3, backgroundColor: "#008080", marginTop: 2 }}
+              ></View>
+            </View>
           </View>
 
           {/* CHAT SESSIONS */}
-          <View>
-            <ScrollView>
-              <View style={styles.article}>
-                <View>
-                  <Image />
+          <View style={{ flex: 1 }}>
+            <ScrollView contentContainerStyle={styles.chats}>
+              {/* EACH CHATS */}
+              <View>
+                <View style={styles.chat}>
+                  <Image
+                    source={require("../assets/avatar.png")}
+                    style={{
+                      width: 47,
+                      height: 45,
+                      resizeMode: "contain",
+                    }}
+                  />
+                  <View>
+                    <Text style={styles.communityText}>
+                      Session With Queeneth June
+                    </Text>
+                    <Text style={styles.smallText}>
+                      I am feeling overwhelmed and i don't...
+                    </Text>
+                    <Text style={styles.dateText}>18/04/2023</Text>
+                  </View>
                 </View>
-                <View>
-                  <Text style={styles.headerText}>
-                    Session With Queeneth June
-                  </Text>
-                  <Text style={styles.smallText}>10K Members</Text>
-                  <Text> Adeola Greg</Text>
+                <View
+                  style={{
+                    height: 1,
+                    width: "100%",
+                    backgroundColor: "#e5e8e8",
+                  }}
+                ></View>
+              </View>
+              <View>
+                <View style={styles.chat}>
+                  <Image
+                    source={require("../assets/avatar.png")}
+                    style={{
+                      width: 47,
+                      height: 45,
+                      resizeMode: "contain",
+                    }}
+                  />
+                  <View>
+                    <Text style={styles.communityText}>
+                      Session With Dr. Ayo Mirabel
+                    </Text>
+                    <Text style={styles.smallText}>
+                      I am feeling overwhelmed and i don't...
+                    </Text>
+                    <Text style={styles.dateText}>18/04/2023</Text>
+                  </View>
                 </View>
+                <View
+                  style={{
+                    height: 1,
+                    width: "100%",
+                    backgroundColor: "#e5e8e8",
+                  }}
+                ></View>
+              </View>
+              <View>
+                <View style={styles.chat}>
+                  <Image
+                    source={require("../assets/avatar.png")}
+                    style={{
+                      width: 47,
+                      height: 45,
+                      resizeMode: "contain",
+                    }}
+                  />
+                  <View>
+                    <Text style={styles.communityText}>
+                      Session With Bode Thomas
+                    </Text>
+                    <Text style={styles.smallText}>
+                      I am feeling overwhelmed and i don't...
+                    </Text>
+                    <Text style={styles.dateText}>12/04/2022</Text>
+                  </View>
+                </View>
+                <View
+                  style={{
+                    height: 1,
+                    width: "100%",
+                    backgroundColor: "#e5e8e8",
+                  }}
+                ></View>
               </View>
             </ScrollView>
           </View>
 
+          {/* ADD ICON */}
+          <View style={styles.add}>
+            <TouchableOpacity>
+              <Image source={require("../assets/png-icons/plus.png")} />
+            </TouchableOpacity>
+          </View>
+
+          {/* BOTTOM TAB */}
           <View style={styles.tab}>
             <TouchableOpacity
-              onPress={() => navigation.navigate("Home")}
+              onPress={() => navigation.navigate("home")}
               style={{ padding: 6, gap: 3, alignItems: "center" }}
             >
+              {/* <HomeIcon /> */}
               <Text style={styles.HomeText}>Home</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{ padding: 6, gap: 3 }}>
-              <View></View>
-
+            <TouchableOpacity
+              style={{ padding: 6, gap: 3 }}
+              onPress={() => navigation.navigate("help")}
+            >
               <Text>Help</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3, alignItems: "center" }}
+              onPress={() => navigation.navigate("explore")}
             >
               <Text>Explore</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ padding: 6, gap: 3, alignItems: "center" }}
+              onPress={() => navigation.navigate("community")}
             >
               <Text>Community</Text>
             </TouchableOpacity>
@@ -80,111 +189,60 @@ export default function ClosedChat({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
     height: "100%",
   },
-  loader: {
-    alignItems: "center",
-    flex: 1,
-    justifyContent: "center",
-    flexDirection: "column",
-  },
-  //   safeview: {
-  //     paddingTop: 10,
-  //     backgroundColor: "#fff",
-  //     alignItems: "center",
-  //     height: "100%",
-  //   },
-  HeaderText: {
-    // fontFamily: "Inter",
-    fontSize: 20,
+  headerText: {
+    fontSize: 18,
     fontWeight: 600,
+    paddingLeft: 30,
+    alignSelf: "flex-end", // textAlign: "center",
+  },
+  header: {
+    paddingVertical: 20,
+    flexDirection: "row",
+    paddingHorizontal: 15,
+    gap: 30,
+    alignItems: "center",
   },
   smallText: {
-    fontSize: 16,
-    paddingTop: 5,
+    fontSize: 12,
+    paddingTop: 3,
   },
-  buttoncontainer: {
-    width: "90%",
-    borderRadius: 8,
-    marginTop: 45,
-    fontSize: 6,
+  dateText: {
+    fontSize: 10,
+    paddingTop: 4,
   },
-  button: {
-    display: "flex",
-    textAlign: "center",
-    borderRadius: 8,
-    paddingVertical: 6,
-    fontSize: 6,
-    paddingHorizontal: 6,
+  chats: {
+    flex: 1,
+    paddingHorizontal: 15,
   },
-  price: {
-    fontSize: 18,
-    fontWeight: 700,
-  },
-  booksContainer: {
-    flexDirection: "row",
-    // alignItems: "center",
-    paddingVertical: 15,
-    flexWrap: "wrap",
-    columnGap: 6,
-    rowGap: 16,
-    justifyContent: "center",
-  },
-  book: {
-    flexDirection: "column",
-    // alignItems: "center",
-    gap: 5,
-    justifyContent: "center",
-    padding: 10,
-    border: "none",
-    backgroundColor: "#fff",
-    borderRadius: 8,
-  },
-  shadowProp: {
-    shadowColor: "#696969",
-    shadowOffset: { width: 0.5, height: 3 },
-    shadowOpacity: 0.14,
-    shadowRadius: 6,
-    elevation: 6,
-  },
-  article: {
+  chat: {
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: 18,
-    paddingHorizontal: 25,
+    paddingVertical: 15,
+    // paddingHorizontal: 1
+    gap: 10,
+  },
+  add: {
+    position: "fixed",
+    bottom: 10,
+    left: "80%",
+  },
+  session: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 15,
     gap: 20,
-    width: "100%",
-    justifyContent: "space-between",
   },
   tab: {
-    // position: "absolute",
-    // zIndex: 1,
-    // bottom: 0,
-    // left: 0,
-    // right: 0,
     alignItems: "center",
     backgroundColor: "#fff",
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 15,
-    paddingTop: 12,
-    borderRadiusTopRight: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 15,
     gap: 10,
     width: "100%",
     justifyContent: "space-between",
-  },
-  HomeText: {
-    color: "#411465",
-    fontWeight: 600,
-  },
-  genre: {
-    flexDirection: "row",
-    alignItems: "center",
-    color: "#411465",
-    backgroundColor: "#D9D0E0",
-    paddingVertical: 6,
-    paddingHorizontal: 10,
-    borderRadius: 6,
   },
 });
