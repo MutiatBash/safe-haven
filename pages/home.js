@@ -19,6 +19,56 @@ import { useState, useContext, useCallback, useEffect } from "react";
 import HomeIcon from "../assets/icons/home-filled.svg";
 // import { auth } from "../firebase";
 
+import home from "../assets/png-icons/home.png";
+import homeFilled from "../assets/png-icons/home-filled.png";
+import helpFilled from "../assets/png-icons/help-filled.png";
+import help from "../assets/png-icons/help.png";
+import communityFilled from "../assets/png-icons/community-filled.png";
+import community from "../assets/png-icons/community.png";
+import exploreFilled from "../assets/png-icons/explore-filled.png";
+import explore from "../assets/png-icons/explore.png";
+
+export function Navigation({ navigation, activePage }) {
+  return (
+    <View style={[styles.tab, { position: "fixed" }]}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("home")}
+        style={{ padding: 6, gap: 3, alignItems: "center" }}
+      >
+        <Image source={activePage == "home" ? homeFilled : home} />
+        <Text style={[activePage == "home" && styles.activeNav]}>Home</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{ padding: 6, gap: 3 }}
+        onPress={() => navigation.navigate("help")}
+      >
+        <Image source={activePage == "help" ? helpFilled : help} />
+        <Text style={[activePage == "help" && styles.activeNav]}>Help</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{ padding: 6, gap: 3, alignItems: "center" }}
+        onPress={() => navigation.navigate("explore")}
+      >
+        <Image source={activePage == "explore" ? exploreFilled : explore} />
+        <Text style={[activePage == "explore" && styles.activeNav]}>
+          Explore
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{ padding: 6, gap: 3, alignItems: "center" }}
+        onPress={() => navigation.navigate("community")}
+      >
+        <Image
+          source={activePage == "community" ? communityFilled : community}
+        />
+        <Text style={[activePage == "community" && styles.activeNav]}>
+          Community
+        </Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
 export default function Home({ navigation }) {
   const { username, setUsername } = useContext(AuthContext);
   return (
@@ -183,46 +233,13 @@ export default function Home({ navigation }) {
               </ScrollView>
             </View>
           </View>
-
           {/* ADD ICON */}
           <View style={styles.add}>
             <TouchableOpacity>
               <Image source={require("../assets/png-icons/plus.png")} />
             </TouchableOpacity>
           </View>
-
-          {/* BOTTOM NAVIGATION */}
-
-          <View style={styles.tab}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("home")}
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
-            >
-              <Image source={require("../assets/png-icons/home-filled.png")} />
-              <Text style={styles.HomeText}>Home</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ padding: 6, gap: 3 }}
-              onPress={() => navigation.navigate("help")}
-            >
-              <Image source={require("../assets/png-icons/help.png")} />
-              <Text>Help</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
-              onPress={() => navigation.navigate("explore")}
-            >
-              <Image source={require("../assets/png-icons/explore.png")} />
-              <Text>Explore</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
-              onPress={() => navigation.navigate("community")}
-            >
-              <Image source={require("../assets/png-icons/community.png")} />
-              <Text>Community</Text>
-            </TouchableOpacity>
-          </View>
+          <Navigation navigation={navigation} activePage="home" />
         </View>
 
         <StatusBar style="auto" />
@@ -236,7 +253,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
     backgroundColor: "#fafafa",
-
     height: "100%",
   },
   loader: {
@@ -339,7 +355,7 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "space-between",
   },
-  HomeText: {
+  activeNav: {
     color: "rgba(0, 128,128,255)",
     fontWeight: 600,
   },

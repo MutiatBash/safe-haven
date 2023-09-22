@@ -13,7 +13,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-
+import { Navigation } from "./home";
 // import Toast from "react-native-root-toast";
 // import { ToastContainer } from "react-native-toast-message";
 import { useState, useContext, useCallback, useEffect } from "react";
@@ -123,32 +123,7 @@ export default function Help({ navigation }) {
           </View>
           {/* </SafeAreaView> */}
 
-          <View style={styles.tab}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("home")}
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
-            >
-              <Text style={styles.HomeText}>Home</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ padding: 6, gap: 3 }}
-              onPress={() => navigation.navigate("help")}
-            >
-              <Text>Help</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
-              onPress={() => navigation.navigate("explore")}
-            >
-              <Text>Explore</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ padding: 6, gap: 3, alignItems: "center" }}
-              onPress={() => navigation.navigate("community")}
-            >
-              <Text>Community</Text>
-            </TouchableOpacity>
-          </View>
+          <Navigation navigation={navigation} activePage="help" />
         </View>
 
         <StatusBar style="auto" />

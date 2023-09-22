@@ -11,6 +11,7 @@ import NewDocument from "./pages/newDocument";
 import Onboarding from "./pages/onboarding";
 import OngoingChat from "./pages/ongoingChat";
 import ClosedChat from "./pages/closedChat";
+import Avatar from "./pages/avatar";
 import setDefaultProps from "react-native-simple-default-props";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
@@ -61,6 +62,7 @@ export default function App(props) {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="onboarding" component={Onboarding} />
           <Stack.Screen name="signup" component={Signup} />
+          <Stack.Screen name="avatar" component={Avatar} />
           <Stack.Screen name="home" component={Home} />
           <Stack.Screen name="help" component={Help} />
           <Stack.Screen name="explore" component={Explore} />
