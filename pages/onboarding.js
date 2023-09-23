@@ -96,7 +96,7 @@ export default function Onboarding({ navigation }) {
             {slides[activeSlideIndex].carousel && (
               <Image
                 source={slides[activeSlideIndex].carousel}
-                style={{ marginTop: 20 }}
+                style={{ marginTop: 5 }}
               />
             )}
             <View style={{ width: "70%" }}>
@@ -154,7 +154,7 @@ export default function Onboarding({ navigation }) {
               ) : (
                 <TouchableOpacity
                   onPress={() => {
-                    navigation.navigate("signin");
+                    navigation.navigate("signup");
                   }}
                   style={styles.skipContainer}
                 >
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
   },
   skipContainer: {
     paddingVertical: 15,
-    marginTop: 10,
+    marginTop: 5,
   },
   backgroundImage: {
     paddingTop: 60,

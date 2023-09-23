@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
   HeaderText: {
     // color: "#411465",
     textAlign: "left",
-    // fontFamily: "Inter",
+
     fontSize: 22,
     fontWeight: 600,
     letterSpacing: -0.025,
@@ -223,9 +223,10 @@ const styles = StyleSheet.create({
   },
   logo: {
     marginVertical: 5,
-    width: 70,
-    height: 70,
+    width: 50,
+    height: 50,
     resizeMode: "contain",
+    alignSelf:"center",
   },
   buttonContainer: {
     width: "90%",

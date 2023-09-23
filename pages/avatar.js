@@ -52,7 +52,7 @@ export default function Avatar({ navigation }) {
           <View style={{ margin: 20, alignItems: "center" }}>
             <Image
               source={selectedAvatar}
-              style={{ width: 180, height: 180 }}
+              style={{ width: 150, height: 150 }}
             />
           </View>
           <View
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   safeview: {
-    paddingTop: 10,
+    paddingTop: 5,
     backgroundColor: "#fff",
     alignItems: "center",
     height: "100%",
@@ -159,8 +159,8 @@ const styles = StyleSheet.create({
   },
   logo: {
     marginVertical: 5,
-    width: 70,
-    height: 70,
+    width: 50,
+    height: 50,
     resizeMode: "contain",
   },
   buttonContainer: {
